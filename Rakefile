@@ -4,7 +4,7 @@ require 'rspec/core/rake_task'
 
 desc "Run server"
 task :serverup do
-    system "ruby server.rb"
+    system "rake serverup"
 end
 
 namespace :test do
