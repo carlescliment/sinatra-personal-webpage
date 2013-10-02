@@ -1,8 +1,92 @@
 !!!
 %html
-  %head
-  %body#profile
-    %h1 Carles Climent
 
-    %p
-      Mi web personal.
+  %head
+    %link(rel="stylesheet" href="stylesheets/foundation.css")
+    %link(rel="stylesheet" href="stylesheets/customizations.css")
+
+  %body#profile
+  %nav.top-bar.hide-for-smal
+    %ul.title-area
+      %li.name
+        %h1
+          %a{ :href => '/' } Carles Climent
+
+  %div.row
+    %div.large-12.columns.panel
+      %div.large-2.columns
+        %img{ :src => '/images/carles-face-small.jpg' }
+      %div.large-6.columns
+        %h1 Carles Climent
+        %h4.subheader Freelance web developer and consultant
+      %div.large-4.columns.text-center
+        %div.row
+          %div.large-6.columns
+            %a{ :href => 'https://github.com/carlescliment' }
+              %img{ :src => '/images/github-logo.png' }
+          %div.large-6.columns
+            %a{ :href => 'http://www.linkedin.com/in/carlescliment' }
+              %img{ :src => '/images/linkedin-logo.gif' }
+        %div.row
+          %div.large-6.columns
+            Github
+          %div.large-6.columns
+            LinkedIn
+        %div.row
+          %div.large-12.columns
+        %div.row.extra-padding-top
+          %div.large-12.columns
+            %a#contact-link.button.expand{ :href => '/contact' } Contact me
+
+  %div.row
+    %div.large-12.columns.text-center
+      %h4 Non-technical traits
+  %div.row
+    %div.large-12.columns.panel.text-center
+      %div.row
+        %div.large-4.columns
+          %h5 Quality
+        %div.large-4.columns
+          %h5 Efficiency
+        %div.large-4.columns
+          %h5 Honesty
+      %div.row
+        %div.large-4.columns
+          %h5 Passion
+        %div.large-4.columns
+          %h5 Method
+        %div.large-4.columns
+          %h5 Discipline
+
+  %div.row
+    %div.large-12.columns.text-center
+      %h4 Technical traits
+  %div.row
+    %div.large-12.columns.panel.text-center
+      %div.row
+        %div.large-6.columns
+          %h5 XP Developer
+          %ul.no-bullet
+            %li Test-driven
+            %li Early deliverer
+            %li Heavy object-oriented
+            %li Versed in kanban/scrum
+            %li Oriented to customer needs
+        %div.large-6.columns
+          %ul.no-bullet
+            %li
+              %ul.no-bullet
+                %li
+                  %strong Expert in
+                %li PHP: Symfony2, Silex, raw applications
+                %li MySQL / relational databases
+            %li
+              %ul.no-bullet
+                %li
+                  %strong Familiar with
+                %li Python: CherryPy
+            %li
+              %ul.no-bullet
+                %li
+                  %strong Now learning
+                %li Ruby: Sinatra, Rails

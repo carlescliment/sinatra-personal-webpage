@@ -2,16 +2,16 @@ require_relative '../../app'
 
 require 'capybara'
 
-describe 'profile' do
+describe 'contact' do
   include Capybara::DSL
 
   before do
     Capybara.app = PersonalWebPage.new
   end
 
-  it 'Shows the personal profile' do
+  it 'Provides a call-to-action in the profile page' do
     visit '/'
 
-    page.should have_selector('#profile')
+    page.should have_selector('#contact-link')
   end
 end
