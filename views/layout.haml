@@ -13,4 +13,9 @@
           %h1
             %a{ :href => '/' } Carles Climent
 
-    = yield
+  -if not flash.empty?
+    %div.row
+      %div.large-12.columns.panel.alert-box.success.text-center
+        =styled_flash
+
+  = yield

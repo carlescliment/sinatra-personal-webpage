@@ -1,3 +1,5 @@
 .extra-padding-top {
     padding-top: 10px;
 }
+
+textarea { height: auto; }

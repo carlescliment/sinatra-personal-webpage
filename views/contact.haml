@@ -1,1 +1,15 @@
-%form#contact
+%div.large-6.columns.panel.large-centered
+  %h1.text-center Contact
+  %form#contact{ :action => "", :method => "post"}
+    %div.row
+      %fieldset
+        %ul.no-bullet
+          %li
+            %label{:for => "mail"} Your e-mail:
+            %input{:type => "text", :name => "email", :class => "text"}
+          %li
+            %label{:for => "message"} Your message:
+            %textarea.small-12.columns{:name => "message", :rows => 20}
+    %div.row
+      %input{:type => "submit", :value => "Send", :class => "button"}
+      %a{:href => '/'} or go back to my profile

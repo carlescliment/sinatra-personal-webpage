@@ -1,5 +1,6 @@
 source "http://rubygems.org"
 gem "sinatra"
+gem "sinatra-flash", "~> 0.3.0"
 gem "thin"
 gem "haml"
 
@@ -11,7 +12,5 @@ group :test do
 end
 
 group :development do
-  gem 'better_errors'
-  gem 'binding_of_caller'
   gem 'shotgun'
 end
