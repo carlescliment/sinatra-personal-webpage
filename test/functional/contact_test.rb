@@ -18,14 +18,7 @@ describe "Contact" do
   end
 
 
-  it 'shows a contact form' do
-    visit '/contact'
-
-    page.should have_selector('form#contact')
-  end
-
-
-  it 'receives the contact request' do
+  it 'shows a success message after receiving the contact request' do
     visit '/contact'
 
     page.fill_in 'email', :with => 'sample@email.is'
@@ -34,6 +27,5 @@ describe "Contact" do
 
     page.should have_selector('.success')
   end
-
 
 end

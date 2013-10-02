@@ -3,3 +3,12 @@
 }
 
 textarea { height: auto; }
+
+i.large {
+    font-size: 50px;
+    line-height: 50px;
+}
+i.medium {
+    font-size: 35px;
+    padding: 0 5px;
+}
