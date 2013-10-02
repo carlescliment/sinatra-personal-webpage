@@ -10,5 +10,9 @@ class PersonalWebPage < Sinatra::Base
   get '/' do
     haml :profile, :format => :html5
   end
+
+  get '/contact' do
+    haml :contact, :format => :html5
+  end
 end
 

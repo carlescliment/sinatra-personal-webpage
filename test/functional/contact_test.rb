@@ -9,9 +9,17 @@ describe 'contact' do
     Capybara.app = PersonalWebPage.new
   end
 
-  it 'Provides a call-to-action in the profile page' do
+  it 'Provides a link to the contact form in the profile page' do
     visit '/'
 
-    page.should have_selector('#contact-link')
+    page.should have_selector('a[href="/contact"]')
   end
+
+
+  it 'Shows a contact form' do
+    visit '/contact'
+
+    page.should have_selector('form#contact')
+  end
+
 end
