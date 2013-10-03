@@ -13,11 +13,12 @@ describe '/post' do
     message = "I've seen things you wouldn't believe"
     stub_contact_settings('from@address.is', 'to@address.is')
 
-    Pony.should_receive(:mail).with(
-      :to => 'to@address.is',
-      :from => 'from@address.is',
-      :subject => 'Contact from your personal webpage',
-      :body => "#{sender} : #{message}")
+    Pony.should_receive(:mail) do |params|
+      params[:to].should be 'to@address.is'
+      params[:from].should be 'from@address.is'
+      params[:body].should include(sender)
+      params[:body].should include(message)
+    end
 
     post '/contact', params={:email => sender, :message => message}
   end
