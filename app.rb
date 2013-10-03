@@ -15,7 +15,6 @@ class PersonalWebPage < Sinatra::Base
   end
 
   get '/contact' do
-    flash.now[:info] = 
     haml :contact, :format => :html5
   end
 
