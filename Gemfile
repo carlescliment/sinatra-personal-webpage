@@ -1,6 +1,7 @@
 source "http://rubygems.org"
 gem "sinatra"
 gem "sinatra-flash", "~> 0.3.0"
+gem "sinatra-config-file"
 gem "thin"
 gem "haml"
 gem "pony"
