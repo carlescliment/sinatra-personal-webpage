@@ -3,6 +3,7 @@ gem "sinatra"
 gem "sinatra-flash", "~> 0.3.0"
 gem "thin"
 gem "haml"
+gem "pony"
 
 #bundle install --without test development
 group :test do

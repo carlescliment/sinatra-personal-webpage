@@ -1,7 +1,6 @@
 require 'rubygems'
 require 'rspec/core/rake_task'
 
-
 desc "Run server"
 task :serverup do
     system "ruby app.rb"
@@ -15,9 +14,16 @@ namespace :test do
         t.rspec_opts = " -c"
     end
 
+    desc "Run controller tests"
+    RSpec::Core::RakeTask.new(:controller) do |t|
+        t.pattern = "test/controller/*.rb"
+        t.rspec_opts = " -c"
+    end
+
     desc "Run all tests"
     task :all do
         Rake::Task['test:functional'].execute
+        Rake::Task['test:controller'].execute
     end
 
 end

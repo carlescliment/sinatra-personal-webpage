@@ -2,6 +2,7 @@ require_relative '../../app'
 
 require 'capybara'
 require 'test/unit'
+require_relative '../spec_helper'
 
 
 describe "Contact" do

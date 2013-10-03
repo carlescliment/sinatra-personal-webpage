@@ -14,16 +14,19 @@
           %a{ :href => 'http://www.linkedin.com/in/carlescliment' }
             %i.fi-social-linkedin.medium
       %div.row
+        %div.large-6.columns
+          %a{ :href => 'https://github.com/carlescliment' } In Github
+        %div.large-6.columns
+          %a{ :href => 'http://www.linkedin.com/in/carlescliment' } In Linkedin
+      %div.row
         %div.large-12.columns
       %div.row.extra-padding-top
         %div.large-12.columns
           %a#contact-link.button.expand{ :href => '/contact' } Contact me
 
 %div.row
-  %div.large-12.columns.text-center
+  %div.large-12.columns.text-center.panel
     %h4 Non-technical traits
-%div.row
-  %div.large-12.columns.panel.text-center
     %div.row
       %div.large-4.columns
         %h5 Quality
@@ -36,44 +39,89 @@
         %i.fi-torsos.medium
     %div.row
       %div.large-4.columns
-        %h5 Passion
-        %i.fi-heart.medium
-      %div.large-4.columns
         %h5 Method
         %i.fi-magnifying-glass.medium
+      %div.large-4.columns
+        %h5 Passion
+        %i.fi-heart.medium
       %div.large-4.columns
         %h5 Discipline
         %i.fi-sheriff-badge.medium
 
 %div.row
-  %div.large-12.columns.text-center
-    %h4 Technical traits
-%div.row
-  %div.large-12.columns.panel.text-center
+  %div.large-12.columns.panel
     %div.row
-      %div.large-6.columns
-        %h5 XP Developer
+      %h4.text-center Technical traits
+      %div.large-6.columns.text-center
+        %h5 XP
         %ul.no-bullet
           %li Test-driven
           %li Early deliverer
           %li Heavy object-oriented
           %li Trained in Kanban/Scrum
           %li Focused on customer needs
-      %div.large-6.columns
+      %div.large-3.columns
         %ul.no-bullet
           %li
-            %ul.no-bullet
+            %strong Expert in:
+            %ul
               %li
-                %strong Expert in
-              %li PHP: Symfony2, Silex, raw applications
-              %li MySQL / relational databases
+                PHP
+                %ul
+                  %li Symfony 2
+                  %li Silex
+                  %li Raw applications
+              %li
+                MySQL
+              %li
+                JavaScript
+      %div.large-3.columns
+        %ul.no-bullet
           %li
-            %ul.no-bullet
+            %strong Experienced with:
+            %ul
               %li
-                %strong Familiar with
-              %li Python: CherryPy
+                Python
+                %ul
+                  %li CherryPy
           %li
-            %ul.no-bullet
+            %strong Now improving:
+            %ul
               %li
-                %strong Now learning
-              %li Ruby: Sinatra, Rails
+                Ruby
+                %ul
+                  %li Sinatra
+                  %li Rails
+
+%div.row
+  %div.large-12.columns.panel
+    %h4.text-center Things I've done
+    %div.large-6.columns
+      %h5.text-center Talks and publications
+      %ul
+        %li
+          %a{ :href => 'http://www.carlescliment.com/materiales/calidad-e-integraci%C3%B3n-continua-agile-levante-enero-2012' } Calidad e integración Continua. Una introducción (spanish)
+        %li
+          %a{ :href => 'http://www.carlescliment.com/blog/drupalcamp-sevilla-2011-calidad-e-integraci%C3%B3n-continua' } Talk about quality in DrupalCamp Sevilla 2011 (spanish)
+        %li
+          %a{ :href => 'https://groups.drupal.org/node/131949' } Optimización en Drupal 6 (spanish)
+
+    %div.large-6.columns
+      %h5.text-center Open-sourced
+      %ul
+        %li
+          %a{ :href => 'https://github.com/carlescliment/moco' } A nano-framework for building HTTP-agnostic PHP apps
+        %li
+          %a{ :href => 'https://github.com/carlescliment/calendar-bundle' } Calendar for Symfony 2
+        %li
+          %a{ :href => 'https://github.com/carlescliment/light-news-bundle' } Light News for Symfony 2
+        %li
+          %a{ :href => 'https://github.com/carlescliment/handy-tests-bundle' } Handy Tests for Symfony 2
+        %li
+          %a{ :href => 'https://github.com/carlescliment/ActiveRecord' } ActiveRecord ORM for Drupal 7
+
+      %h5.text-center Non open-sourced
+      %ul
+        %li
+          %a{ :href => 'http://www.vetaminic.com' } A fully-featured web application for veterinary clinics
+        %li ... and many others, just ask me.

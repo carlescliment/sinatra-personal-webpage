@@ -1,15 +1,20 @@
-%div.large-6.columns.panel.large-centered
-  %h1.text-center Contact
-  %form#contact{ :action => "", :method => "post"}
-    %div.row
-      %fieldset
-        %ul.no-bullet
-          %li
-            %label{:for => "mail"} Your e-mail:
-            %input{:type => "text", :name => "email", :class => "text"}
-          %li
-            %label{:for => "message"} Your message:
-            %textarea.small-12.columns{:name => "message", :rows => 20}
-    %div.row
-      %input{:type => "submit", :value => "Send", :class => "button"}
-      %a{:href => '/'} or go back to my profile
+%div.row
+  %div.large-6.columns.large-centered
+    %h1.text-center Contact
+    %form#contact{ :action => "", :method => "post"}
+      %div.row
+        %fieldset
+          %ul.no-bullet
+            %li
+              %label{:for => "email"} Your e-mail:
+              %input{:type => "email", :name => "email", :class => "text", :required => true}
+            %li
+              %label{:for => "message"} Your message:
+              %textarea.small-12.columns{:name => "message", :rows => 20}
+      %div.row.text-center
+        %input{:type => "submit", :value => "Send", :class => "button"}
+
+  %div.large-6.columns.large-centered.text-center
+    %p
+      or
+      %a{:href => '/'} go back to my profile

@@ -12,3 +12,10 @@ i.medium {
     font-size: 35px;
     padding: 0 5px;
 }
+.container{
+    padding: 0 20px;
+}
+.footer{
+    padding-bottom: 20px;
+    color: #999;
+}
