@@ -5,7 +5,7 @@ gem "sinatra-config-file"
 gem "thin"
 gem "haml"
 gem "pony"
-gem "glorify"
+gem "metadown"
 
 #bundle install --without test development
 group :test do

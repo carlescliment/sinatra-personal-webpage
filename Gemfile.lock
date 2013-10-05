@@ -11,16 +11,13 @@ GEM
     daemons (1.1.9)
     diff-lcs (1.2.4)
     eventmachine (1.0.3)
-    glorify (0.5.0)
-      nokogiri
-      rdoc-rouge
-      sinatra
     haml (4.0.3)
       tilt
-    json (1.8.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    metadown (1.0.1)
+      redcarpet
     mime-types (1.25)
     mini_portile (0.5.1)
     multi_json (1.8.0)
@@ -34,13 +31,7 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
-    rdoc (4.0.1)
-      json (~> 1.4)
-    rdoc-rouge (0.1.0)
-      rdoc (~> 4.0)
-      rouge (~> 0.3.0)
-    rouge (0.3.10)
-      thor
+    redcarpet (3.0.0)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -70,7 +61,6 @@ GEM
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
       rack (>= 1.0.0)
-    thor (0.18.1)
     tilt (1.4.1)
     treetop (1.4.15)
       polyglot
@@ -83,8 +73,8 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
-  glorify
   haml
+  metadown
   pony
   rack-test
   rspec

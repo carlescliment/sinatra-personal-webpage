@@ -2,22 +2,21 @@ require 'sinatra'
 require 'sinatra/flash'
 require 'sinatra/config_file'
 require 'pony'
-require 'glorify'
+require 'metadown'
 
 
 class PersonalWebPage < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
   register Sinatra::ConfigFile
-  register Sinatra::Glorify
   config_file 'config/config.yml'
 
   get '/' do
-    haml :profile, :format => :html5
+    haml :profile
   end
 
   get '/contact' do
-    haml :contact, :format => :html5
+    haml :contact
   end
 
   post '/contact' do
@@ -33,9 +32,10 @@ class PersonalWebPage < Sinatra::Base
     redirect '/contact'
   end
 
-  get '/post' do
-    content = File.open("#{File.dirname(__FILE__)}/_posts/2011-12-08-instalar-sonar-en-proyectos-php.md", "rb").read
-    haml :post, :format => :html5, :locals => { :content => content }
+  get '/blog/:slug' do |title|
+    content = File.open("#{File.dirname(__FILE__)}/_posts/#{title}.md", "rb").read
+    data = Metadown.render(content)
+    haml :post, :locals => { :content => data.output.force_encoding('UTF-8'), :title => data.metadata['title']}
   end
 end
 
