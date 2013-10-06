@@ -1,8 +1,9 @@
 class Post
-  def initialize(title, body, date)
+  def initialize(title, body, date, href = '')
     @title = title
     @body = body
     @date = date
+    @href = href
   end
 
   def body
@@ -16,4 +17,13 @@ class Post
   def date
     @date
   end
+
+  def href
+    @href
+  end
+
+  def format_date
+    @date.strftime("%A, %d %B %Y")
+  end
+
 end

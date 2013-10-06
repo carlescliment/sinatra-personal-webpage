@@ -1,3 +1,6 @@
+- content_for(:title) do
+  Personal web page
+
 %div.row#profile
   %div.large-12.columns.panel
     %div.large-2.columns
@@ -18,11 +21,12 @@
           %a{ :href => 'https://github.com/carlescliment' } In Github
         %div.large-6.columns
           %a{ :href => 'http://www.linkedin.com/in/carlescliment' } In Linkedin
-      %div.row
-        %div.large-12.columns
       %div.row.extra-padding-top
         %div.large-12.columns
           %a#contact-link.button.expand{ :href => '/contact' } Contact me
+      %div.row
+        %div.large-12.columns
+          %a#contact-link.button.secondary.expand{ :href => '/blog' } Visit my blog
 
 %div.row
   %div.large-12.columns.text-center.panel

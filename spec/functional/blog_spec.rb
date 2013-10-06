@@ -7,8 +7,19 @@ describe 'blog' do
 
   before do
     Capybara.app = PersonalWebPage.new
-    Capybara.app.settings.blog['source_dir'] = 'spec/functional'
+    Capybara.app.settings.blog['source_dir'] = 'spec/functional/fixtures'
   end
+
+
+  it 'renders the index' do
+    #see index.yml
+    expected = 3
+
+    visit '/blog'
+
+    page.all('.post').count.should eql expected
+  end
+
 
   it 'renders a blog post' do
     #see test-post.md

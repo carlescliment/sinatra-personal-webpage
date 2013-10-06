@@ -1,0 +1,17 @@
+- content_for(:title) do
+  Blog
+
+%div.row#post
+  %div.large-12.columns
+    %h1.text-center Blog
+
+    %ul
+    - index.each do |post|
+      %li.post.panel
+        %h3
+          %a{ :href => post.href }
+            =post.title
+        %p
+          Published on
+          =post.format_date
+

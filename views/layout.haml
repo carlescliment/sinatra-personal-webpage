@@ -2,6 +2,9 @@
 %html
 
   %head
+    %title
+      Carles Climent - 
+      = yield_content(:title)
     %link(rel="stylesheet" href="/stylesheets/foundation.min.css")
     %link(rel="stylesheet" href="/stylesheets/foundation-icons.css")
     %link(rel="stylesheet" href="/stylesheets/customizations.css")
@@ -19,7 +22,8 @@
       %div.large-12.columns.panel.alert-box.success.text-center
         =styled_flash
 
-  = yield
+
+  = yield(:body)
 
   %div.container
     %div.row.footer
