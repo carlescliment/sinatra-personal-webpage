@@ -1,8 +1,11 @@
 - content_for(:title) do
   Personal web page
 
-%div.row#profile
-  %div.large-12.columns.panel
+- content_for(:breadcrumb) do
+  %a.current{ :href => '#'} Carles Climent
+
+%div.row.extra-padding-top#profile
+  %div.large-12.columns
     %div.large-2.columns
       %img{ :src => '/images/carles-face-small.jpg' }
     %div.large-6.columns

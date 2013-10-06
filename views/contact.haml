@@ -1,6 +1,10 @@
 - content_for(:title) do
   Contact
 
+- content_for(:breadcrumb) do
+  %a{ :href => '/'} Carles Climent
+  %a.current{ :href => '#'} Contact
+
 %div.row
   %div.large-6.columns.large-centered
     %h1.text-center Contact
@@ -16,8 +20,3 @@
               %textarea.small-12.columns{:name => "message", :rows => 20}
       %div.row.text-center
         %input{:type => "submit", :value => "Send", :class => "button"}
-
-  %div.large-6.columns.large-centered.text-center
-    %p
-      or
-      %a{:href => '/'} go back to my profile

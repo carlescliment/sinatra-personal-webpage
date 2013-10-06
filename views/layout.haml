@@ -15,17 +15,21 @@
       %ul.title-area
         %li.name
           %h1
-            %a{ :href => '/' } Carles Climent
 
-  -if not flash.empty?
+    -if not flash.empty?
+      %div.row
+        %div.large-12.columns.panel.alert-box.success.text-center
+          =styled_flash
+
+
     %div.row
-      %div.large-12.columns.panel.alert-box.success.text-center
-        =styled_flash
+      %nav.breadcrumbs
+        = yield_content(:breadcrumb)
+
+    = yield(:body)
 
 
-  = yield(:body)
-
-  %div.container
-    %div.row.footer
-      %div.large-12.columns.text-center
-        Copyright © 2013 carlescliment.com
+    %div.container
+      %div.row.footer
+        %div.large-12.columns.text-center
+          Copyright © 2013 carlescliment.com

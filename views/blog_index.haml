@@ -1,6 +1,10 @@
 - content_for(:title) do
   Blog
 
+- content_for(:breadcrumb) do
+  %a{ :href => '/'} Carles Climent
+  %a.current{ :href => '#'} Blog
+
 %div.row#post
   %div.large-12.columns
     %h1.text-center Blog
