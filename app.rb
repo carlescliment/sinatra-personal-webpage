@@ -2,7 +2,8 @@ require 'sinatra'
 require 'sinatra/flash'
 require 'sinatra/config_file'
 require 'pony'
-require 'metadown'
+
+require_relative './model/markdown_post_provider'
 
 class PersonalWebPage < Sinatra::Base
   enable :sessions
@@ -32,10 +33,9 @@ class PersonalWebPage < Sinatra::Base
   end
 
   get '/blog/:title' do |title|
-    path = File.dirname(__FILE__) + '/' + settings.blog['source_dir']
-    content = File.open("#{path}/#{title}.md", "rb").read
-    data = Metadown.render(content)
-    haml :post, :locals => { :content => data.output.force_encoding('UTF-8'), :title => data.metadata['title']}
+    path = settings.root + '/' + settings.blog['source_dir']
+    post = MarkdownPostProvider.load(title, path)
+    haml :post, :locals => { :post => post }
   end
 end
 

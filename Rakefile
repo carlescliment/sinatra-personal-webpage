@@ -8,6 +8,12 @@ end
 
 namespace :test do
 
+    desc "Run model specs"
+    RSpec::Core::RakeTask.new(:model) do |t|
+        t.pattern = "spec/model/*.rb"
+        t.rspec_opts = " -c"
+    end
+
     desc "Run functional specs"
     RSpec::Core::RakeTask.new(:functional) do |t|
         t.pattern = "spec/functional/*.rb"
@@ -22,8 +28,9 @@ namespace :test do
 
     desc "Run all specs"
     task :all do
-        Rake::Task['test:functional'].execute
+        Rake::Task['test:model'].execute
         Rake::Task['test:controller'].execute
+        Rake::Task['test:functional'].execute
     end
 
 end
