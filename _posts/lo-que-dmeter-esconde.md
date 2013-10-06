@@ -1,4 +1,7 @@
---- layout: default title: !binary |- TG8gcXVlIETDqW1ldGVyIGVzY29uZGU= created: 1366883144 --- 
+---
+title: Lo que Démeter esconde
+date: 2013-04-25
+---
 
 ### Introducción
 

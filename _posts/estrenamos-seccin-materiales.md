@@ -1,4 +1,8 @@
---- layout: default title: !binary |- RXN0cmVuYW1vcyBzZWNjacOzbjogTWF0ZXJpYWxlcw== created: 1326308682 --- 
+---
+title: Estrenamos sección Materiales
+date: 2012-01-11
+---
+
 
 Con motivo de la [charla del 10 de enero a cargo Agile
 Levante](http://agilelevante.wordpress.com/2012/01/05/10-enero-ven-a-charlar-

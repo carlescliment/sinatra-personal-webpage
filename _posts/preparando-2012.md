@@ -1,4 +1,7 @@
---- layout: default title: Preparando 2012 created: 1327264425 --- 
+---
+title: Preparando 2012
+date: 2012-01-22
+---
 
 Si a finales del mes pasado escribía [un resumen del 2011](/blog/2011-un-año-
 de-libros) en el que me congratulaba del camino recorrido hasta entonces en

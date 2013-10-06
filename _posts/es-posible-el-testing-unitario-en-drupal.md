@@ -1,4 +1,7 @@
---- layout: default title: !binary |- wr9FcyBwb3NpYmxlIGVsIHRlc3RpbmcgdW5pdGFyaW8gZW4gRHJ1cGFsPw== created: 1355782331 --- 
+---
+title: ¿Es posible el testing unitario en Drupal?
+date: 2012-12-17
+---
 
 ### Introducción
 

@@ -1,4 +1,7 @@
---- layout: default title: Setters y Getters created: 1342182810 --- 
+---
+title: Setters y getters
+date: 2012-07-13
+---
 
 Desde que he empezado a trabajar con Symfony 2 me ha llamado la atención el
 uso de setters y getters. A juzgar por el código que he podido leer, y con el

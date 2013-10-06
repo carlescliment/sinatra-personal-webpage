@@ -1,4 +1,7 @@
---- layout: default title: Otra manera de desarrollar en Drupal (I) created: 1336295664 --- 
+---
+title: Otra manera de desarrollar en Drupal (I)
+date: 2012-05-06
+---
 
 ### De por qué me siento un extraño
 

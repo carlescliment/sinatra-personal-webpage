@@ -1,4 +1,7 @@
---- layout: default title: !binary |- wr9EZWJlbW9zIHRlc3RlYXIgbG9zIG3DqXRvZG9zIHByaXZhZG9zPw== created: 1371922995 --- 
+---
+title: ¿Debemos testear los métodos privados?
+date: 2013-06-22
+---
 
 ### Introducción
 

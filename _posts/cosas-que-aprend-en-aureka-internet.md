@@ -1,4 +1,7 @@
---- layout: default title: !binary |- Q29zYXMgcXVlIGFwcmVuZMOtIGVuIEF1cmVrYSBJbnRlcm5ldA== created: 1338537971 --- 
+---
+title: Cosas que aprendí de Aureka Internet
+date: 2012-06-01
+---
 
 Mis días en Aureka Internet llegaron a su fin. No ha sido un final deseado ni
 por Aureka ni por mí, os lo aseguro, pero las turbulencias políticas y

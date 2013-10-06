@@ -1,4 +1,7 @@
---- layout: default title: !binary |- wr9Tb21vcyBhbmltYWxlcyBvIHBlcnNvbmFzPw== created: 1334952130 --- 
+---
+title: ¿Somos animales o personas?
+date: 2012-04-20
+---
 
 Para abordar el tema de hoy os tengo que presentar a un compañero de trabajo.
 Se llame como se llame, todos le llamamos Nepundo.

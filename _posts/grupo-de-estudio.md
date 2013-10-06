@@ -1,4 +1,8 @@
---- layout: default title: Grupo de estudio created: 1329344896 --- 
+---
+title: Grupo de estudio
+date: 2012-02-15
+---
+
 
 Ya os he hablado en alguna ocasión sobre motivación y desarrollo profesional,
 pero hasta ahora siempre lo había enfocado desde el punto de vista individual.

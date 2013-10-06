@@ -1,4 +1,8 @@
---- layout: default title: !binary |- MjAxMTogVW4gYcOxbyBkZSBsaWJyb3M= created: 1325241027 --- 
+---
+title: 2011, Un año de libros
+date: 2011-12-30
+---
+
 
 ### Un año intenso
 

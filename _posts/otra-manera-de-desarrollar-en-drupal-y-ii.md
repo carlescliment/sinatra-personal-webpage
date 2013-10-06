@@ -1,4 +1,7 @@
---- layout: default title: Otra manera de desarrollar en Drupal (y II) created: 1336343602 --- 
+---
+title: Otra manera de desarrollar en Drupal (y II)
+date: 2012-05-07
+---
 
 _Nota: este artículo forma parte de una serie de dos, y aunque no es
 imprescindible os recomiendo que leáis [la primera

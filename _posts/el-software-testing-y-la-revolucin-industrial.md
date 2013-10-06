@@ -1,4 +1,7 @@
---- layout: default title: !binary |- RWwgU29mdHdhcmUgVGVzdGluZyB5IGxhIFJldm9sdWNpw7NuIEluZHVzdHJp YWw= created: 1353323552 --- 
+---
+title: El software testing y la revolución industrial
+date: 2012-11-19
+---
 
 ### Introducción
 

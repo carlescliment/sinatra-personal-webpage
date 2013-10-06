@@ -1,0 +1,11 @@
+---
+title: El potencial
+date: 2011-11-24
+---
+
+_El potencial_... Esto del potencial es muy difícil de evaluar. Si la naturaleza no te ha dotado de una mente brillantísima. Si intentas suplir tu falta de memoria con multitud de post-its adheridos al monitor. Si tu capacidad de multi-tasking es bastante limitada (te cuesta prestar atención al teléfono mientras cocinas un huevo frito). Entonces te preguntas dónde carajo está tu potencial. Si te sientes identificado con cualquiera de las características que comento en el párrafo anterior, tranquilo. No lo tenemos todo perdido. Hay un arma secreta, quizá la menos extendida de todas, que puede ayudarnos a dar unos pasos más allá, a diferenciarnos, a acercarnos a pasitos a los mejores. Aunque queden aún muy lejos. Este arma es la **pasión profesional**. Muchos programadores, o esa es mi experiencia, tienen muy poca o ninguna pasión por su profesión. Se despiertan cada mañana, acuden al trabajo, cumplen tan bien como pueden y ahí terminó. Se construyen una agradable rutina de la que intentan salir tan ilesos como sea posible y disfrutar de las otras cosas de la vida, las que les son importantes. Pero es una rutina triste, porque es una rutina que acompaña toda la vida (en principio), y que constriñe como un árbol plantado en una maceta, sin poder extenderse, sin poder profundizar. ¿Por qué ocurre esto? Pues no lo sé, quizá por aquello de que estudiar algo "porque tiene mucha salida". O por una falta de apetito vital. O por una sencilla pero trágica equivación al decidir qué se quiere ser en la vida. Si dejamos que nuestro interés por la profesión se congele estaremos congelando un ¿cuarto? de nuestra vida. Hay que vivir con pasión. Hay que trabajar con pasión. Hay que amar con pasión. Porque sin ella ni se ama, ni se vive, ni se trabaja. Ya lo dice Benedetti en su famoso poema [No te salves](http://www.youtube.com/watch?v=rwivEVwkyXw). Hace algo más de un año llegó a mis manos el libro **The Passionate Programmer**. Regálatelo estas navidades, seguro que te gustará tanto como a mí. 
+
+[![](http://ecx.images-
+amazon.com/images/I/41fyjTVARFL._SL500_AA240_.jpg)](http://www.amazon.es
+/Passionate-Programmer-Remarkable-Development-Pragmatic/dp/1934356344)
+

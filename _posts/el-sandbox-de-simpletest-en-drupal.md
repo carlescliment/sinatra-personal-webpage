@@ -1,4 +1,7 @@
---- layout: default title: El sandbox de SimpleTest en Drupal created: 1323986187 --- 
+---
+title: El sandbox de Simpletest en Drupal
+date: 2011-12-15
+---
 
 ### El clon
 

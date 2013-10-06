@@ -1,4 +1,7 @@
---- layout: default title: Instalar Sonar en proyectos PHP created: 1323379654 --- 
+---
+title: Instalar sonar en proyectos PHP
+date: 2011-12-08
+---
 
 _Nota: este artículo fue revisado el día 19 de Julio de 2013 para corregir
 algunas indicaciones que habían quedado obsoletas. No dudéis en contactar
@@ -58,10 +61,6 @@ task.png)
 &nbsp_place_holder;
 
 ## Definir nuestras propias reglas
----
-title: Instalar sonar en proyectos PHP
-date: 2011-12-08
----
 
 De nuevo en la interfaz de administración de Sonar, acudiremos a "Quality
 Profiles" para crear un perfil PHP propio. El mío está creado a partir del ya

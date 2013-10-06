@@ -1,4 +1,7 @@
---- layout: default title: !binary |- U2NydW0gZW4gbG9zIHByb3llY3RvcyByZWzDoW1wYWdv created: 1333620551 --- 
+---
+title: Scrum en los proyectos relámpago
+date: 2012-04-05
+---
 
 ### Scrum, una flor de mil virtudes
 

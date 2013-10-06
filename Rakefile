@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'rspec/core/rake_task'
-
+require_relative './app'
+require_relative './tasks/index_creator'
 desc "Run server"
 task :serverup do
     system "ruby app.rb"
@@ -33,4 +34,15 @@ namespace :test do
         Rake::Task['test:functional'].execute
     end
 
+end
+
+namespace :blog do
+
+    desc "Reindex posts"
+    task :reindex do
+        app = PersonalWebPage.new
+        path = app.settings.root + '/' + app.settings.blog['source_dir']
+        creator = IndexCreator.new(path)
+        creator.create
+    end
 end

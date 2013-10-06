@@ -1,4 +1,7 @@
---- layout: default title: !binary |- wqFObyBtaWNyb2dlc3Rpb25lcyE= created: 1334392519 --- 
+---
+title: No microgestiones
+date: 2012-04-14
+---
 
 Si no conocéis [el blog de Jummp](http://jummp.wordpress.com/) os recomiendo
 que lo añadáis a vuestro feed reader. Siempre que

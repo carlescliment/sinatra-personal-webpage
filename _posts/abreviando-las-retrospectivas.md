@@ -1,4 +1,7 @@
---- layout: default title: Abreviando las retrospectivas created: 1328215039 --- 
+---
+title: Abreviando las retrospectivas
+date: 2012-02-02
+---
 
 ### Trasfondo
 

@@ -1,4 +1,7 @@
---- layout: default title: Una triste historia de usuario created: 1331154888 --- 
+---
+title: Una triste historia de usuario
+date: 2012-03-07
+---
 
 Ayer en nuestras oficinas tuvimos una charla de [Xavi
 Gost](https://twitter.com/#!/xav1uzz) sobre historias de usuario. En las

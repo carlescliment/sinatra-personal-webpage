@@ -1,4 +1,7 @@
---- layout: default title: !binary |- RHJ1cGFsQ2FtcCBTZXZpbGxhIDIwMTEuIENhbGlkYWQgZSBJbnRlZ3JhY2nD s24gQ29udGludWE= created: 1323726359 --- 
+---
+title: DrupalCamp Sevilla 2011, Calidad e integración continua
+date: 2011-12-12
+---
 
 Hace unos meses, en Septiembre, tuve la suerte de acudir a la [DrupalCamp
 2011](http://2011.drupalcamp.es/) en Sevilla. La experiencia fue inmejorable y

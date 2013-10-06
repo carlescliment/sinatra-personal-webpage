@@ -1,4 +1,9 @@
---- layout: default title: !binary |- Q8OzbW8gc3R1YmJlYXIgLSBmw6FjaWxtZW50ZSAtIHJlcG9zaXRvcmlvcyBl biBTeW1mb255IDI= created: 1353599158 --- Stubbear repositorios puede ser un quebradero de cabeza en Symfony 2. Os pongo un ejemplo: 
+---
+title: Cómo stubbear fácilmente repositorios en Symfony 2
+date: 2012-11-22
+---
+
+Stubbear repositorios puede ser un quebradero de cabeza en Symfony 2. Os pongo un ejemplo: 
     
     <?php
     class MySampleTest extends \PHPUnit_Framework_TestCase {
