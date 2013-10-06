@@ -4,7 +4,6 @@ require 'sinatra/config_file'
 require 'pony'
 require 'metadown'
 
-
 class PersonalWebPage < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
@@ -32,8 +31,9 @@ class PersonalWebPage < Sinatra::Base
     redirect '/contact'
   end
 
-  get '/blog/:slug' do |title|
-    content = File.open("#{File.dirname(__FILE__)}/_posts/#{title}.md", "rb").read
+  get '/blog/:title' do |title|
+    path = File.dirname(__FILE__) + '/' + settings.blog['source_dir']
+    content = File.open("#{path}/#{title}.md", "rb").read
     data = Metadown.render(content)
     haml :post, :locals => { :content => data.output.force_encoding('UTF-8'), :title => data.metadata['title']}
   end

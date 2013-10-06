@@ -1,3 +1,6 @@
 contact:
   from_address: info@whatever.com
   to_address: to@whatever.com
+
+blog:
+  source_dir: _posts
