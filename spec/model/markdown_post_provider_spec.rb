@@ -32,7 +32,7 @@ describe 'MarkdownPostProvider' do
     MarkdownPostProvider.load('', '')
   end
 
-  it "brings a post with the content read" do
+  it "provides the post containing the content read" do
     stub_file_read
     render_results = metadown_results
     Metadown.stub(:render).and_return(render_results)
@@ -43,7 +43,7 @@ describe 'MarkdownPostProvider' do
   end
 
 
-  it "brings a post with the title read" do
+  it "provides the post containing the title read" do
     stub_file_read
     render_results = metadown_results
     Metadown.stub(:render).and_return(render_results)
@@ -54,7 +54,7 @@ describe 'MarkdownPostProvider' do
   end
 
 
-  it "brings a post with the date read" do
+  it "provides the post containing the date read" do
     stub_file_read
     render_results = metadown_results
     Metadown.stub(:render).and_return(render_results)
