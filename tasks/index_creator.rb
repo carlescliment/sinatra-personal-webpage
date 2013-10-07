@@ -2,8 +2,9 @@ require_relative './../model/markdown_post_provider'
 
 class IndexCreator
 
-  def initialize(sources)
+  def initialize(sources, url)
     @sources = sources
+    @url = url
   end
 
   def create()
@@ -20,7 +21,7 @@ class IndexCreator
     Dir.glob("#{@sources}/*.md") do |md_file|
       basename = File.basename(md_file, ".md")
       post = load_post_from_file(basename)
-      index << { :title => post.title, :date => post.date, :href => "/blog/#{basename}" }
+      index << { :title => post.title, :date => post.date, :href => "#{@url}/#{basename}" }
     end
     index
   end

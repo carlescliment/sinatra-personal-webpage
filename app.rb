@@ -36,29 +36,46 @@ class PersonalWebPage < Sinatra::Base
   end
 
   get '/blog' do
-    index_file = blog_dir + '/index.yml'
-    index = BlogIndex.new(settings.blog['max_per_page'], current_blog_page)
-    index.load(index_file)
+    index = load_index(settings.blog)
     haml :blog_index, :locals => { :index => index }
   end
 
   get '/blog/:title' do |title|
+    post = load_post_or_404(title, settings.blog)
+    haml :post, :locals => { :post => post }
+  end
+
+  get '/publications' do
+    index = load_index(settings.publications)
+    haml :publications_index, :locals => { :index => index }
+  end
+
+
+  get '/publications/:title' do |title|
+    post = load_post_or_404(title, settings.publications)
+    haml :publication, :locals => { :post => post }
+  end
+
+  private
+
+  def load_post_or_404(title, config)
     begin
-      post = MarkdownPostProvider.load(title, blog_dir)
-      haml :post, :locals => { :post => post }
+      dir = settings.root + '/' + config['source_dir']
+      MarkdownPostProvider.load(title, dir)
     rescue
       error 404, 'Page not found'
     end
   end
 
 
-  private
-
-  def blog_dir
-    settings.root + '/' + settings.blog['source_dir']
+  def load_index(config)
+    index_file = settings.root + '/' + config['source_dir'] + '/index.yml'
+    index = BlogIndex.new(config['max_per_page'], current_page)
+    index.load(index_file)
+    index
   end
 
-  def current_blog_page
+  def current_page
     params[:page].to_i.abs or 0
   end
 

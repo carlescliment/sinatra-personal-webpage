@@ -41,8 +41,14 @@ namespace :blog do
     desc "Reindex posts"
     task :reindex do
         app = PersonalWebPage.new
-        path = app.settings.root + '/' + app.settings.blog['source_dir']
-        creator = IndexCreator.new(path)
+        blog_path = app.settings.root + '/' + app.settings.blog['source_dir']
+        publications_path = app.settings.root + '/' + app.settings.publications['source_dir']
+        create_index(blog_path, '/blog')
+        create_index(publications_path, '/publications')
+    end
+
+    def create_index(path, url)
+        creator = IndexCreator.new(path, url)
         creator.create
     end
 end

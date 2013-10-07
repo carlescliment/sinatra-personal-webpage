@@ -5,3 +5,7 @@ contact:
 blog:
   source_dir: _posts
   max_per_page: 10
+
+publications:
+  source_dir: _publications
+  max_per_page: 10

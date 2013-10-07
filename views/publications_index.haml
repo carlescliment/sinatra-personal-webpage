@@ -1,24 +1,24 @@
 - content_for(:title) do
-  Blog
+  Publications
 
 - content_for(:breadcrumb) do
   %a{ :href => '/'} Carles Climent
-  %a.current{ :href => '#'} Blog
+  %a.current{ :href => '#'} Publications
 
 
 
 %div.row#post
-  %h1.text-center Blog
+  %h1.text-center Publications
 
   %div.large-12.columns
-    %ul.no-bullet
+    %ul
       - index.page_posts.each do |post|
-        %li.post.panel
-          %date{ :date => post.date }
-            =post.format_date
-          %h3
+        %li.publication
+          %p
             %a{ :href => post.href }
               =post.title
+            published on
+            =post.format_date
 
 %div.row
   %div.large-12.columns

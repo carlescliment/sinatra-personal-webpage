@@ -1,0 +1,9 @@
+%ul.button-group
+  - if index.has_previous?
+    %li
+      %a.secondary.button{ :href => "?page=#{index.previous_page}"} Previous
+  %li
+    %a.disabled.button{ :href => '#'} Page #{index.current_page+1} of #{index.pages+1}
+  - if index.has_next?
+    %li
+      %a.secondary.button{ :href => "?page=#{index.next_page}"} Next
