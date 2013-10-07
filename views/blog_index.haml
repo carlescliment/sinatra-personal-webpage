@@ -5,17 +5,27 @@
   %a{ :href => '/'} Carles Climent
   %a.current{ :href => '#'} Blog
 
+
 %div.row#post
   %div.large-12.columns
     %h1.text-center Blog
 
-    %ul
-    - index.each do |post|
-      %li.post.panel
-        %h3
-          %a{ :href => post.href }
-            =post.title
-        %p
-          Published on
-          =post.format_date
+    %ul.no-bullet
+      - index.posts.each do |post|
+        %li.post.panel
+          %h3
+            %a{ :href => post.href }
+              =post.title
+          %p
+            Published on
+            =post.format_date
 
+%div.row
+  %div.large-12.columns
+    %ul.button-group
+      - if index.has_previous?
+        %li
+          %a.secondary.button{ :href => "/blog?page=#{index.previous_page}"} Previous
+      - if index.has_next?
+        %li
+          %a.secondary.button{ :href => "/blog?page=#{index.next_page}"} Next

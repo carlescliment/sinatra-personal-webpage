@@ -5,6 +5,7 @@ require "sinatra/content_for"
 require 'pony'
 
 require_relative './model/markdown_post_provider'
+require_relative './model/blog_index'
 
 class PersonalWebPage < Sinatra::Base
   enable :sessions
@@ -35,19 +36,26 @@ class PersonalWebPage < Sinatra::Base
   end
 
   get '/blog' do
-    path = settings.root + '/' + settings.blog['source_dir'] + '/index.yml'
-    collection = YAML.load_file(path)
-    posts = []
-    collection.each do |post_data|
-      posts << Post.new(post_data[:title], nil, post_data[:date], post_data[:href])
-    end
-    haml :blog_index, :locals => { :index => posts }
+    index_file = blog_dir + '/index.yml'
+    index = BlogIndex.new(settings.blog['max_per_page'], current_blog_page)
+    index.load(index_file)
+    haml :blog_index, :locals => { :index => index }
   end
 
   get '/blog/:title' do |title|
-    path = settings.root + '/' + settings.blog['source_dir']
-    post = MarkdownPostProvider.load(title, path)
+    post = MarkdownPostProvider.load(title, blog_dir)
     haml :post, :locals => { :post => post }
+  end
+
+
+  private
+
+  def blog_dir
+    settings.root + '/' + settings.blog['source_dir']
+  end
+
+  def current_blog_page
+    params[:page].to_i or 0
   end
 end
 

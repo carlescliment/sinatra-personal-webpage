@@ -13,9 +13,19 @@ describe 'blog' do
 
   it 'renders the index' do
     #see index.yml
-    expected = 3
+    expected = 10
 
     visit '/blog'
+
+    page.all('.post').count.should eql expected
+  end
+
+
+  it 'renders next pages' do
+    #see index.yml
+    expected = 3
+
+    visit '/blog?page=1'
 
     page.all('.post').count.should eql expected
   end

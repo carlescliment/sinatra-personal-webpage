@@ -4,3 +4,4 @@ contact:
 
 blog:
   source_dir: _posts
+  max_per_page: 10
