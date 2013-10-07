@@ -11,7 +11,7 @@
     %h1.text-center Blog
 
     %ul.no-bullet
-      - index.posts.each do |post|
+      - index.page_posts.each do |post|
         %li.post.panel
           %h3
             %a{ :href => post.href }

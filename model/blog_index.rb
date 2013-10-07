@@ -13,10 +13,10 @@ class BlogIndex
     end
   end
 
-  def posts
+  def page_posts
     newest = @max_per_page * @current_page
     oldest = newest + @max_per_page
-    @posts[newest...oldest]
+    @posts[newest...oldest] or []
   end
 
   def has_next?

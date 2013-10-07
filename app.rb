@@ -55,7 +55,7 @@ class PersonalWebPage < Sinatra::Base
   end
 
   def current_blog_page
-    params[:page].to_i or 0
+    params[:page].to_i.abs or 0
   end
 end
 
