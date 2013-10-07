@@ -151,7 +151,7 @@ eficacia con la que prevengamos los bugs y la rapidez con la que actuemos
 contra ellos serán críticas para el éxito de cualquier proyecto.
 
 ![Incremento del coste en la detección tardía de los
-bugs](/sites/default/files/images/calidad_01_2012/bugs_deteccion.png)
+bugs](/images/blog/images/calidad_01_2012/bugs_deteccion.png)
 
 En la figura de arriba se observa el impacto de un bug según el momento en el
 que es descubierto. Un bug en la especificación será muy fácil de corregir si
@@ -227,7 +227,7 @@ adaptarse constantemente a los cambios en el entorno.
 ### El desarrollo en cascada. La informática como ingeniería
 
 ![Metodologías tradicionales. Diagrama de
-Gantt](/sites/default/files/images/calidad_01_2012/gant-chart.jpg)
+Gantt](/images/blog/images/calidad_01_2012/gant-chart.jpg)
 
 El desarrollo tradicional o en cascada trata de eliminar la incertidumbre en
 las primeras etapas del desarrollo del software. Estas etapas son lineales y
@@ -270,7 +270,7 @@ El desarrollo en cascada tiene varios puntos débiles:
 ### El desarrollo ágil. La informática como artesanía
 
 ![Metodologías ágiles, proceso de
-desarrollo.](/sites/default/files/images/calidad_01_2012/agile_process.jpg)
+desarrollo.](/images/blog/images/calidad_01_2012/agile_process.jpg)
 
 En el año 2001, 17 de los desarrolladores de software de referencia se
 reunieron para proponer alternativas a las metodologías tradicionales de
@@ -391,7 +391,7 @@ aceptación en una página HTML y ejecutar esos tests sobre la aplicación para
 comprobar los resultados.
 
 ![Captura de pantalla de
-Fitnesse](/sites/default/files/images/calidad_01_2012/fitnesse.png)
+Fitnesse](/images/blog/images/calidad_01_2012/fitnesse.png)
 
 ## TDD
 
@@ -533,7 +533,7 @@ tests son demasiado pesados como para ser ejecutados en cada commit pueden
 seguirse otras estrategias como ejecutar los tests de manera periódica.
 
 ![Jenkins. Captura de
-pantalla](/sites/default/files/images/calidad_01_2012/jenkins.png)
+pantalla](/images/blog/images/calidad_01_2012/jenkins.png)
 
 Hay muchas maneras de avisar al equipo de un test fallido, desde las [lámparas
 de lava](http://blog.coryfoy.com/2008/10/build-status-lamp-with-ruby-and-
@@ -544,7 +544,7 @@ elija la que considere más apropiada.
 ### Staging
 
 ![Separación de
-entornos](/sites/default/files/images/calidad_01_2012/staging.png)
+entornos](/images/blog/images/calidad_01_2012/staging.png)
 
 El staging consiste en la separación de entornos de trabajo. Permite aislar el
 entorno de desarrollo del de pruebas, y éste del de producción. Lo habitual en
@@ -948,7 +948,7 @@ porque ocurren a la vez. Este tipo de acoplamiento suele hacerse evidente ante
 pequeñas modificaciones en la lógica de negocio.
 
 ![Sonar. Captura de
-pantalla](/sites/default/files/images/calidad_01_2012/sonar_phpUnit.png)
+pantalla](/images/blog/images/calidad_01_2012/sonar_phpUnit.png)
 
 ## Conclusiones
 
