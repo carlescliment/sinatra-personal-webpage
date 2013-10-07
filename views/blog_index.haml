@@ -6,10 +6,10 @@
   %a.current{ :href => '#'} Blog
 
 
+
 %div.row#post
   %div.large-12.columns
     %h1.text-center Blog
-
     %ul.no-bullet
       - index.page_posts.each do |post|
         %li.post.panel
@@ -20,12 +20,15 @@
             Published on
             =post.format_date
 
+
 %div.row
   %div.large-12.columns
     %ul.button-group
       - if index.has_previous?
         %li
           %a.secondary.button{ :href => "/blog?page=#{index.previous_page}"} Previous
+      %li
+        %a.disabled.button{ :href => '#'} Page #{index.current_page+1} of #{index.pages+1}
       - if index.has_next?
         %li
           %a.secondary.button{ :href => "/blog?page=#{index.next_page}"} Next

@@ -31,10 +31,21 @@ class BlogIndex
     @current_page+1
   end
 
+  def current_page
+    @current_page
+  end
+
   def previous_page
     if @current_page == 0
       return 0
     end
     @current_page-1
+  end
+
+  def pages
+    if @posts == 0
+      return 1
+    end
+    @posts.count / @max_per_page
   end
 end
