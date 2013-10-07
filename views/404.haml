@@ -1,0 +1,15 @@
+- content_for(:title) do
+  Not found
+
+- content_for(:breadcrumb) do
+  %a{ :href => '/'} Carles Climent
+  %a.current{ :href => '#'} Not found
+
+%div.row
+  %div.large-6.columns.large-centered
+    %h1.text-center Ouch!
+    %p
+      The page you are trying to see does not exist. May be you wanted to visit my
+      %a{ :href => '/blog' } blog
+      or my
+      %a{ :href => '/' } personal web page

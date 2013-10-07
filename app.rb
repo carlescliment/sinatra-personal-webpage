@@ -43,8 +43,12 @@ class PersonalWebPage < Sinatra::Base
   end
 
   get '/blog/:title' do |title|
-    post = MarkdownPostProvider.load(title, blog_dir)
-    haml :post, :locals => { :post => post }
+    begin
+      post = MarkdownPostProvider.load(title, blog_dir)
+      haml :post, :locals => { :post => post }
+    rescue
+      error 404, 'Page not found'
+    end
   end
 
 
@@ -57,5 +61,7 @@ class PersonalWebPage < Sinatra::Base
   def current_blog_page
     params[:page].to_i.abs or 0
   end
+
+  not_found { haml :'404' }
 end
 

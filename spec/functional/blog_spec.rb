@@ -40,4 +40,12 @@ describe 'blog' do
     expect(page.status_code).to be 200
     expect(page).to have_content expected
   end
+
+
+
+  it 'shows a not found page if the post does not exist' do
+    visit '/blog/unexisting-test-post'
+
+    expect(page.status_code).to be 404
+  end
 end
