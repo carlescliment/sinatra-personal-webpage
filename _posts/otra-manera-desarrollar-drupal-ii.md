@@ -5,7 +5,7 @@ date: 2012-05-07
 
 _Nota: este artículo forma parte de una serie de dos, y aunque no es
 imprescindible os recomiendo que leáis [la primera
-parte](http://www.carlescliment.com/blog/otra-manera-desarrollar-drupal-i) en
+parte](/blog/otra-manera-desarrollar-drupal-i) en
 la explico mis motivaciones a la hora de cambiar mi manera de trabajar con
 Drupal._
 

@@ -59,8 +59,8 @@ que encontrar.
 
 ¿Habéis intentado hacer unit testing en Drupal? Si no lo habéis hecho, os
 animo a que lo intentéis. Y ya me contáis cuánto tardáis en encontraros con un
-acceso inesperado a la base de datos, con un drupal_goto(), con una función
-t(), con recogida de argumentos con arg(0), arg(1) o $_GET. Y os daréis cuenta
+acceso inesperado a la base de datos, con un drupal\_goto(), con una función
+t(), con recogida de argumentos con arg(0), arg(1) o $\_GET. Y os daréis cuenta
 de que por doquier el código está acoplado a la base de datos, a las URLs, al
 core, a otros módulos, [a sí
 mismo](http://en.wikipedia.org/wiki/Law_of_Demeter)... veréis la cantidad de
@@ -93,5 +93,5 @@ a objetos,
 [BDD](http://en.wikipedia.org/wiki/Behavior_Driven_Development).
 
 Los detalles de cómo apliqué todo esto [en la segunda
-parte](http://www.carlescliment.com/blog/otra-manera-desarrollar-drupal-ii).
+parte](/blog/otra-manera-desarrollar-drupal-ii).
 
