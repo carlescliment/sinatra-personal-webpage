@@ -19,7 +19,7 @@ My twitter will still be in Spanish, so long as I consider it in my personal, no
 
 ### From Drupal to Sinatra
 
-The other big change is the move from Drupal to Sinatra. Drupal is okay for building a blog, and I could just wire this with that and obtain the same website in Drupal. So why did I rewrote my site?
+The other big change is the move from Drupal to Sinatra. Drupal is okay for building a blog, so why did I rewrote it?
 
 **Learning**
 
@@ -31,7 +31,9 @@ The other big change is the move from Drupal to Sinatra. Drupal is okay for buil
 
   In the same way, I'm removing waste from my life. I'm removing some memories that make me feel badly from time to time. I'm dropping down my relations with people I dislike. I'm losing the affections to things. And I'm learning to stand *only with the things I need*. My girlfriend, my family, my good friends, my dogs, my long walks, my coding time.
 
+  Regarding to the code, I'm moving from heavy frameworks to thinner ones. I enjoy building things from scratch or wiring existing components. That makes me feel free and creative!
+
 
 ### From a startup to freelancer
 
-  In the new version of *carlescliment.com* I've created a new [home page](/) containing my personal profile. I gave me one year to succeed with a startup and I failed, so a new stage in my professional life has arisen. I don't know if I'm going to be more successful now. But surely I'll learn in the way.
+  In the new version of *carlescliment.com* I've created a new [home page](/) containing my personal profile. In June 2012 I gave me one year to succeed with a startup and I failed, so a new stage in my professional life has arisen. I don't know if I'm going to be more successful now. But surely I'll learn in the way.
