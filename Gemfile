@@ -5,7 +5,8 @@ gem "sinatra-config-file"
 gem "thin"
 gem "haml"
 gem "pony"
-gem "metadown"
+gem "metadown", :git => 'git://github.com/steveklabnik/metadown.git'
+gem "pygments.rb"
 
 #bundle install --without test development
 group :test do

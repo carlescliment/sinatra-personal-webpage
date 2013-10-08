@@ -1,10 +1,12 @@
 require 'metadown'
 require_relative './post'
+require_relative '../modules/syntax_markdown'
 
 class MarkdownPostProvider
   def self.load(url_title, path)
     contents = read_contents(url_title, path)
-    markdown_data = Metadown.render(contents)
+    renderer = Redcarpet::Markdown.new(SyntaxMarkdown, :fenced_code_blocks => true)
+    markdown_data = Metadown.render(contents, renderer)
     markdown_to_post(markdown_data)
   end
 
