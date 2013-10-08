@@ -4,7 +4,7 @@ require_relative '../modules/syntax_markdown'
 
 class MarkdownPostProvider
   def self.load(url_title, path, use_base_render = false)
-    contents = read_contents(url_title, path)
+    contents = read_contents(url_title, path).force_encoding('UTF-8')
     markdown_data = Metadown.render(contents, get_renderer(use_base_render))
     markdown_to_post(markdown_data)
   end

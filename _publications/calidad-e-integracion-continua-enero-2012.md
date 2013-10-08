@@ -151,7 +151,7 @@ eficacia con la que prevengamos los bugs y la rapidez con la que actuemos
 contra ellos serán críticas para el éxito de cualquier proyecto.
 
 ![Incremento del coste en la detección tardía de los
-bugs](/images/blog/images/calidad_01_2012/bugs_deteccion.png)
+bugs](/images/calidad_01_2012/bugs_deteccion.png)
 
 En la figura de arriba se observa el impacto de un bug según el momento en el
 que es descubierto. Un bug en la especificación será muy fácil de corregir si
@@ -185,9 +185,13 @@ fluffer que utiliza el algoritmo de flatgury para abrir un flurry con el api
 de baloncestos.com. ¡Además lo hemos hecho en tiempo record!. Esto nos
 permitirá ir un par de días por delante de lo previsto.
 
-**Cliente:** (no ha entendido nada) ¡Pues eso es estupendo! ¿Entonces vamos a tener lista esa funcionalidad para la demo del jueves?   
-**Desarrollador:** ¡Claro! Aquí hacemos las cosas bien (ahora ponemos cara muy seria). Sin embargo, tienes que prometerme una cosa.   
-**Cliente:** (se remueve en su silla, asustado) Uh, ¿el qué? **Desarrollador:** Nuestra conexión con baloncestos.com a través del flurry del fluffer utiliza una librería muy específica para el tratamiento de canastas. Tienes que prometerme que nunca vas a mostrar resultados de fútbol, rugby ni ningún otro deporte que no utilice canastas. Si no, ¡tendremos que hacer la aplicación de nuevo casi desde cero! 
+> **Cliente:** (no ha entendido nada) ¡Pues eso es estupendo! ¿Entonces vamos a tener lista esa funcionalidad para la demo del jueves?
+
+> **Desarrollador:** ¡Claro! Aquí hacemos las cosas bien (ahora ponemos cara muy seria). Sin embargo, tienes que prometerme una cosa..
+
+> **Cliente:** (se remueve en su silla, asustado) Uh, ¿el qué?
+
+> **Desarrollador:** Nuestra conexión con baloncestos.com a través del flurry del fluffer utiliza una librería muy específica para el tratamiento de canastas. Tienes que prometerme que nunca vas a mostrar resultados de fútbol, rugby ni ningún otro deporte que no utilice canastas. Si no, ¡tendremos que hacer la aplicación de nuevo casi desde cero!
 
 En una conversación como la descrita pueden ocurrir dos cosas. O bien el
 cliente se niega a aceptar esa restricción, o bien se encoge de hombros y
@@ -227,7 +231,7 @@ adaptarse constantemente a los cambios en el entorno.
 ### El desarrollo en cascada. La informática como ingeniería
 
 ![Metodologías tradicionales. Diagrama de
-Gantt](/images/blog/images/calidad_01_2012/gant-chart.jpg)
+Gantt](/images/calidad_01_2012/gant-chart.jpg)
 
 El desarrollo tradicional o en cascada trata de eliminar la incertidumbre en
 las primeras etapas del desarrollo del software. Estas etapas son lineales y
@@ -270,7 +274,7 @@ El desarrollo en cascada tiene varios puntos débiles:
 ### El desarrollo ágil. La informática como artesanía
 
 ![Metodologías ágiles, proceso de
-desarrollo.](/images/blog/images/calidad_01_2012/agile_process.jpg)
+desarrollo.](/images/calidad_01_2012/agile_process.jpg)
 
 En el año 2001, 17 de los desarrolladores de software de referencia se
 reunieron para proponer alternativas a las metodologías tradicionales de
@@ -391,7 +395,7 @@ aceptación en una página HTML y ejecutar esos tests sobre la aplicación para
 comprobar los resultados.
 
 ![Captura de pantalla de
-Fitnesse](/images/blog/images/calidad_01_2012/fitnesse.png)
+Fitnesse](/images/calidad_01_2012/fitnesse.png)
 
 ## TDD
 
@@ -533,7 +537,7 @@ tests son demasiado pesados como para ser ejecutados en cada commit pueden
 seguirse otras estrategias como ejecutar los tests de manera periódica.
 
 ![Jenkins. Captura de
-pantalla](/images/blog/images/calidad_01_2012/jenkins.png)
+pantalla](/images/calidad_01_2012/jenkins.png)
 
 Hay muchas maneras de avisar al equipo de un test fallido, desde las [lámparas
 de lava](http://blog.coryfoy.com/2008/10/build-status-lamp-with-ruby-and-
@@ -544,7 +548,7 @@ elija la que considere más apropiada.
 ### Staging
 
 ![Separación de
-entornos](/images/blog/images/calidad_01_2012/staging.png)
+entornos](/images/calidad_01_2012/staging.png)
 
 El staging consiste en la separación de entornos de trabajo. Permite aislar el
 entorno de desarrollo del de pruebas, y éste del de producción. Lo habitual en
@@ -948,7 +952,7 @@ porque ocurren a la vez. Este tipo de acoplamiento suele hacerse evidente ante
 pequeñas modificaciones en la lógica de negocio.
 
 ![Sonar. Captura de
-pantalla](/images/blog/images/calidad_01_2012/sonar_phpUnit.png)
+pantalla](/images/calidad_01_2012/sonar_phpUnit.png)
 
 ## Conclusiones
 
@@ -982,10 +986,8 @@ A todos ellos, ¡gracias!
   * 20/01/2012 - Refactorización. Eliminado texto sobrante.
   * 05/01/2012 - Primera revisón.
 
-[![Creative Commons License](http://i.creativecommons.org/l/by-
-nc/3.0/88x31.png)](http://creativecommons.org/licenses/by-nc/3.0/)
+[![Creative Commons License](http://i.creativecommons.org/l/by-nc/3.0/88x31.png)](http://creativecommons.org/licenses/by-nc/3.0/)
 
-Calidad e Integración Continua. Una introducción by [Carles Climent
-Granell](/) is licensed under a [Creative Commons Attribution-NonCommercial
-3.0 Unported License](http://creativecommons.org/licenses/by-nc/3.0/).
+Calidad e Integración Continua. Una introducción by
+[Carles Climent Granell](/) is licensed under a [Creative Commons Attribution-NonCommercial 3.0 Unported License](http://creativecommons.org/licenses/by-nc/3.0/).
 
