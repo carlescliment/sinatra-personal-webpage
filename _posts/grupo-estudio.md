@@ -21,9 +21,7 @@ personal hacia mi vida profesional. Podría perfectamente dar paseos más
 largos, ver más películas, leer más novelas, tomar más cervezas o dormir más
 siestas. De lo que os hablo es de una elección personal.
 
-[![Mejora profesional a costa de sacrificio personal](/sites/default/files/ima
-ges/formacion_02_2012/alone.jpg)](/sites/default/files/images/formacion_02_201
-2/alone.jpg)
+[![Mejora profesional a costa de sacrificio personal](/images/formacion_02_2012/alone.jpg)](/images/formacion_02_2012/alone.jpg)
 
 A medida que vaya aprendiendo nuevos conceptos mi forma de trabajar mejorará.
 Tomaré contacto con técnicas, herramientas y metodologías nuevas que querré
@@ -34,9 +32,7 @@ el equipo aprenderá a través de mí, aportará feedback e incluso mejorará la
 ideas iniciales. Sin lugar a dudas, el resto del equipo terminará
 beneficiándose de mi estudio.
 
-[![Los compañeros asimilan conocimientos de otros](/sites/default/files/images
-/formacion_02_2012/influence.jpg)](/sites/default/files/images/formacion_02_20
-12/influence.jpg)
+[![Los compañeros asimilan conocimientos de otros](/images/formacion_02_2012/influence.jpg)](/images/formacion_02_2012/influence.jpg)
 
 Vale, hemos planteado un escenario en el que hay una persona que estudia y el
 resto que asimilan los conocimientos pasivamente. ¿Y si es todo el equipo el
@@ -44,9 +40,7 @@ que estudia siguiendo un plan de formación?. Con el mismo esfuerzo a nivel
 personal, el beneficio colectivo será mucho mayor, puesto que cada individuo
 aportará conocimientos distintos.
 
-[![El conocimiento se comparte entre el equipo](/sites/default/files/images/fo
-rmacion_02_2012/team.jpg)](/sites/default/files/images/formacion_02_2012/team.
-jpg)
+[![El conocimiento se comparte entre el equipo](/images/formacion_02_2012/team.jpg)](/images/formacion_02_2012/team.jpg)
 
 Hoy ha sido un buen día para Aureka Internet porque hemos hablado de esto y
 hemos alcanzado un compromiso. Sin presiones, sin imposiciones, cada cual

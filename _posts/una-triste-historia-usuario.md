@@ -16,7 +16,9 @@ Hoy hemos tenido un problema con una historia de usuario. Estamos
 desarrollando una aplicación en la que los jugadores participan en
 competiciones y, en función de su clasificación, ganan puntos. Simple,
 ¿verdad?. Bueno, en realidad tiene algo más de miga pero no viene al caso. La
-historia en cuestión es la siguiente: ` Como administrador quiero establecer
+historia en cuestión es la siguiente:
+
+` Como administrador quiero establecer
 la clasificación de una competición para que se actualicen los puntos de los
 jugadores. `
 
@@ -58,7 +60,9 @@ Que los puntos de los jugadores se actualicen parece un objetivo lícito. ¿Para
 qué quiero que se actualicen los puntos de los jugadores? ¿La actualización
 aporta valor per se?
 
-Reescribamos la historia de otro punto de vista. ` Como jugador quiero que mis
+Reescribamos la historia de otro punto de vista.
+
+` Como jugador quiero que mis
 puntos se actualicen de acuerdo a mi clasificación en las competiciones para
 poder competir con otros jugadores y hacer mi experiencia de usuario más
 divertida. `
