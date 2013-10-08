@@ -27,7 +27,7 @@ class IndexCreator
   end
 
   def load_post_from_file(basename)
-      MarkdownPostProvider.load(basename, @sources)
+      MarkdownPostProvider.load(basename, @sources, true)
   end
 
 
