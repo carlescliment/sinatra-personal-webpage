@@ -5,8 +5,7 @@ require_relative '../modules/syntax_markdown'
 class MarkdownPostProvider
   def self.load(url_title, path)
     contents = read_contents(url_title, path)
-    renderer = Redcarpet::Markdown.new(SyntaxMarkdown, :fenced_code_blocks => true)
-    markdown_data = Metadown.render(contents, renderer)
+    markdown_data = Metadown.render(contents, get_renderer)
     markdown_to_post(markdown_data)
   end
 
@@ -19,5 +18,9 @@ class MarkdownPostProvider
 
   def self.markdown_to_post(markdown)
     Post.new(markdown.metadata['title'], markdown.output, markdown.metadata['date'])
+  end
+
+  def self.get_renderer()
+    Redcarpet::Markdown.new(SyntaxMarkdown, :fenced_code_blocks => true)
   end
 end

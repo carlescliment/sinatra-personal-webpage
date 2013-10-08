@@ -5,6 +5,7 @@ describe 'MarkdownPostProvider' do
 
   before(:each) do
     @file = double('File', :read => 'File contents')
+    MarkdownPostProvider.stub(:get_renderer).and_return(nil)
   end
 
   it "should look for a file in the specified directory" do
@@ -27,7 +28,7 @@ describe 'MarkdownPostProvider' do
   it "renders the file contents" do
     stub_file_read
 
-    Metadown.should_receive(:render).with('File contents').and_return(metadown_results)
+    Metadown.should_receive(:render).with('File contents', nil).and_return(metadown_results)
 
     MarkdownPostProvider.load('', '')
   end

@@ -8,6 +8,8 @@ describe 'blog' do
   before do
     Capybara.app = PersonalWebPage.new
     Capybara.app.settings.blog['source_dir'] = 'spec/functional/fixtures'
+    # for some fucking reason the custom render does not work from tests
+    MarkdownPostProvider.stub(:get_renderer).and_return(nil)
   end
 
 

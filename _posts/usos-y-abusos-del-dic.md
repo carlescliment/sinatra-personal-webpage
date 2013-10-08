@@ -15,10 +15,7 @@ ha irrumpido en el panorama de PHP con bastante fuerza. Laravel apuesta por la
 simplicidad, emulando en gran medida a Rails en su sintaxis. Incluso su ORM
 por defecto, Eloquent, está basado en el patrón ActiveRecord.
 
-    
-    
-    $user = User::find(1);
-    
+`$user = User::find(1);`
 
 Edu también me envió material sobre [Aspect
 Mock](https://github.com/Codeception/AspectMock). Dado que Laravel se apoya en
@@ -76,42 +73,44 @@ de abstracción** que favorezca que los componentes de la aplicación no se
 conozcan entre sí. El ejemplo más claro que se me ocurre es el de los
 controladores.
 
-    
-    
-    // controller
-    
-        /**
-         * @ParamConverter("course", class="MetodicsSchoolBundle:Course")
-         * @Template()
-         */
-        public function signUpAction(Course $course, Request $request)
-        {
-            $signup = new SignUp($course);
-            $form = $this->createForm(new SignupType, $signup);
-            $form->bind($request);
-            if ($form->isValid()) {
-                try {
-    	        $this->get('signup_handler')->handle($signup);
-                    $message = 'Your signup has been successfully completed.';
-                }
-                catch (Exceptions\AlreadyPreinscribedException $e)
-                {
-                    $message = sprintf('Ohps. Your email was already inscribed.', $signup->getEmail());
-                }
-                $this->get('session')->setFlash('notice', $message);
-                return $this->redirectToCourse($course);
-            }
-            return array('form' => $form, 'course' => $course);
-        }
-    
-    
-    
-        // services.yml
-    
-        signup_handler:
-            class: Metodics\SchoolBundle\Model\Course\SignUpHandler
-            arguments: ["@signup_validator", "@signup_persistor"]
-    
+```
+<?php
+#controller.php
+
+/**
+* @ParamConverter("course", class="MetodicsSchoolBundle:Course")
+* @Template()
+*/
+public function signUpAction(Course $course, Request $request)
+{
+    $signup = new SignUp($course);
+    $form = $this->createForm(new SignupType, $signup);
+    $form->bind($request);
+    if ($form->isValid()) {
+        try {
+            $this->get('signup_handler')->handle($signup);
+            $message = 'Your signup has been successfully completed.';
+        }
+        catch (Exceptions\AlreadyPreinscribedException $e)
+        {
+            $message = sprintf('Ohps. Your email was already inscribed.', $signup->getEmail());
+        }
+        $this->get('session')->setFlash('notice', $message);
+        return $this->redirectToCourse($course);
+    }
+    return array('form' => $form, 'course' => $course);
+}
+```
+
+
+```yaml
+
+#services.yml
+signup_handler:
+    class: Metodics\SchoolBundle\Model\Course\SignUpHandler
+    arguments: ["@signup_validator", "@signup_persistor"]
+```
+
 
 En el ejemplo de arriba estamos utilizando un servicio 'signup_handler'. El
 controlador no sabe qué clase en concreto se encarga de gestionar el registro.
@@ -127,19 +126,20 @@ distintos clientes que envían notificaciones a su base de datos de usuarios.
 Algunos clientes comunican por email, y otros prefieren hacerlo por SMS. El
 DIC nos permite ofrecer ambos comportamientos con la misma base de código:
 
-    
-    
-    // config_foo_client.yml
-        communication_handler:
-            class: Metodics\SchoolBundle\Model\Difusion\SMSHandler
-            arguments: ["@sms_bridge"]
-    
-    
-        // config_bar_client.yml
-        communication_handler:
-            class: Metodics\SchoolBundle\Model\Difusion\EmailHandler
-            arguments: ["@swiftmailer"]
-    
+```yaml
+
+#config_foo_client.yml
+communication_handler:
+    class: Metodics\SchoolBundle\Model\Difusion\SMSHandler
+    arguments: ["@sms_bridge"]
+```
+
+```yaml
+#config_bar_client.yml
+communication_handler:
+    class: Metodics\SchoolBundle\Model\Difusion\EmailHandler
+    arguments: ["@swiftmailer"]
+```
 
 ### Abusando del DIC
 
@@ -174,24 +174,23 @@ normalmente porque estamos utilizándolo como Factory. Este patrón está muy
 bien, pero el DIC no es el lugar apropiado para implementarlo. Por ejemplo,
 imaginemos que tenemos la siguiente configuración en una aplicación:
 
-    
-    
-    // services.yml
-        report_formatter:
-            class: Metodics\InvoicesBundle\Model\Report\Formatter
-    
-        taxes_report:
-            class: Metodics\InvoicesBundle\Model\Report\TaxesReport
-            arguments: ["@doctrine.orm.entity_manager", "@report_formatter"]
-    
-        wages_report:
-            class: Metodics\InvoicesBundle\Model\Report\WagesReport
-            arguments: ["@doctrine.orm.entity_manager", "@report_formatter"]
-    
-        income_report:
-            class: Metodics\InvoicesBundle\Model\Report\IncomeReport
-            arguments: ["@doctrine.orm.entity_manager", "@report_formatter"]
-    
+```yaml
+#services.yml
+report_formatter:
+    class: Metodics\InvoicesBundle\Model\Report\Formatter
+
+taxes_report:
+    class: Metodics\InvoicesBundle\Model\Report\TaxesReport
+    arguments: ["@doctrine.orm.entity_manager", "@report_formatter"]
+
+wages_report:
+    class: Metodics\InvoicesBundle\Model\Report\WagesReport
+    arguments: ["@doctrine.orm.entity_manager", "@report_formatter"]
+
+income_report:
+    class: Metodics\InvoicesBundle\Model\Report\IncomeReport
+    arguments: ["@doctrine.orm.entity_manager", "@report_formatter"]
+```
 
 Con esta configuración podemos obtener cualquier informe desde un controlador
 con `$this->get('xxx_report')`. Pero en casi todos los supuestos, este es un
@@ -199,12 +198,13 @@ mal uso del DIC porque expone servicios que no tienen por qué estar expuestos
 directamente. El DIC no está pensado para construir objetos, y para ello
 podemos implementar nuestro propio Factory:
 
-    
-    
-        report_factory:
-            class: Metodics\InvoicesBundle\Model\Report\ReportFactory
-            arguments: ["@doctrine.orm.entity_manager"]
-    
+
+```yaml
+#services.yml
+report_factory:
+    class: Metodics\InvoicesBundle\Model\Report\ReportFactory
+    arguments: ["@doctrine.orm.entity_manager"]
+```
 
 Será este factory el encargado de gestionar las dependencias, aliviando el
 DIC. Si más adelante necesitamos ofrecer comportamientos distintos en los
@@ -214,31 +214,31 @@ servicios.
 Lo mismo podemos decir del ejemplo del formulario de registro. El DIC puede
 tener un aspecto similar:
 
-    
-    
-        signup_persistor:
-            class: Metodics\SchoolBundle\Model\Course\SignUpPersistor
-            arguments: ["@doctrine.orm.entity_manager"]
-    
-        signup_validator:
-            class: Metodics\SchoolBundle\Model\Course\SignUpValidator
-            arguments: ["@doctrine.orm.entity_manager"]
-    
-        signup_handler:
-            class: Metodics\SchoolBundle\Model\Course\SignUpHandler
-            arguments: ["@signup_validator", "@signup_persistor"]
-    
+```yaml
+#services.yml
+signup_persistor:
+    class: Metodics\SchoolBundle\Model\Course\SignUpPersistor
+    arguments: ["@doctrine.orm.entity_manager"]
+
+signup_validator:
+    class: Metodics\SchoolBundle\Model\Course\SignUpValidator
+    arguments: ["@doctrine.orm.entity_manager"]
+
+signup_handler:
+    class: Metodics\SchoolBundle\Model\Course\SignUpHandler
+    arguments: ["@signup_validator", "@signup_persistor"]
+```
 
 Si esto ocurre para un solo formulario, imaginad cuando tengamos más de
 veinte. Tal vez sea más conveniente ofrecer un único servicio que se encargue
 de devolver el handler apropiado para cada formulario:
 
-    
-    
-    handler_factory:
-            class: Metodics\SchoolBundle\Model\Handler\HandlerFactory
-            arguments: ["@doctrine.orm.entity_manager"]
-    
+```yaml
+#services.yml
+handler_factory:
+    class: Metodics\SchoolBundle\Model\Handler\HandlerFactory
+    arguments: ["@doctrine.orm.entity_manager"]
+```
 
 Y en el controlador algo como
 `$this->get('handler_factory')->build('SignUp');`
