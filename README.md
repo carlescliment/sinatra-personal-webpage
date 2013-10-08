@@ -4,7 +4,7 @@ sinatra-personal-webpage
 My personal webpage written in Sinatra
 
 
-## Deploy with fussion
+## Deploy with phussion passenger
 
 Remember to install bundles using
 
