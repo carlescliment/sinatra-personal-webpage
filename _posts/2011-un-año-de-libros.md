@@ -24,9 +24,9 @@ doce meses.
 ### El detonante
 
 Siempre he disfrutado de la lectura. Me encanta la ciencia ficción pero
-también devoro a otros autores de novela como el difunto [Xosé
-Saramago](http://es.wikipedia.org/wiki/Jos%C3%A9_Saramago), [Haruki
-Murakami](http://es.wikipedia.org/wiki/Haruki_Murakami) y algunos clásicos
+también devoro a otros autores de novela como el difunto
+[Xosé Saramago](http://es.wikipedia.org/wiki/Jos%C3%A9_Saramago),
+[Haruki Murakami](http://es.wikipedia.org/wiki/Haruki_Murakami) y algunos clásicos
 como [Víctor Hugo](http://es.wikipedia.org/wiki/Victor_Hugo). Pero aunque
 sentía esa llamita perfeccionista en mi trabajo, nunca me había atrevido a
 sumergirme a fondo en los libros técnicos quizá por miedo al inglés. Pero algo
@@ -34,16 +34,17 @@ había cambiado, una firme determinación de dar un salto cualitativo como
 profesional, e iba a poner todo mi empeño en ello.
 
 Pasé los días anteriores y posteriores a la Nochevieja del año pasado
-enfrascado en la lectura de [The Passionate
-Programmer](http://pragprog.com/book/cfcar2/the-passionate-programmer). Este
+enfrascado en la lectura de
+[The Passionate Programmer](http://pragprog.com/book/cfcar2/the-passionate-programmer). Este
 libro avivó aún más esta voluntad de expandirme como profesional. Su visión
 pragmática sobre el desarrollo personal y en el trabajo, alejada de
 romanticismos, conectó conmigo desde sus primeras páginas. Creo que ha sido el
 segundo libro en lengua inglesa leído de cabo a rabo, y empezaba a perder el
-miedo y a leer con mayor fluidez. El anterior había sido [The Productive
-Programmer](http://shop.oreilly.com/product/9780596519544.do) y posteriormente
-me haría con [The Pragmatic Programmer](http://pragprog.com/book/tpp/the-
-pragmatic-programmer). Son tres libros imprescindibles para todos los que se
+miedo y a leer con mayor fluidez. El anterior había sido
+[The Productive Programmer](http://shop.oreilly.com/product/9780596519544.do) y posteriormente
+me haría con
+[The Pragmatic Programmer](http://pragprog.com/book/tpp/the-pragmatic-programmer).
+Son tres libros imprescindibles para todos los que se
 dedican a esta profesión.
 
 ### Calidad e Integración Continua
@@ -60,23 +61,23 @@ semanas. Como me faltaban muchos, muchos conocimientos sobre el tema para
 poder abordar con garantías la misión pedí unos cuantos libros para empezar a
 formarme.
 
-El primero que abordé fue [Continuous Integration](http://www.amazon.com
-/Continuous-Integration-Improving-Software-Reducing/dp/0321336380). Me
-enganchó. Aprovechaba cualquier momento libre para leerlo. Los sábados me lo
+El primero que abordé fue
+[Continuous Integration](http://www.amazon.com/Continuous-Integration-Improving-Software-Reducing/dp/0321336380).
+Me enganchó. Aprovechaba cualquier momento libre para leerlo. Los sábados me lo
 llevaba conmigo a desayunar al bar. Por las noches en el paseo al perro, me
 sentaba en un banco bajo una farola a estudiar sus capítulos mientras Deckard
 olisqueaba los arbustos. Creo que si ha habido un libro determinante en la
 mejora del departamento, este ocupa la primera posición.
 
 Como nuevo responsable de QA empecé a inspeccionar todo el código que
-generábamos. Provengo de una [cultura
-Pythonística](http://www.python.org/dev/peps/pep-0020/) y tengo fuertes
+generábamos. Provengo de una
+[cultura Pythonística](http://www.python.org/dev/peps/pep-0020/) y tengo fuertes
 convicciones sobre la importancia de la claridad del código, y me pareció que
 todos teníamos mucho que mejorar. Pero me faltaban unas líneas maestras, unos
-fundamentos teóricos de los que entonces carecía. Por ello me llevé [Clean
-Code](http://www.amazon.es/Clean-Code-Handbook-Software-
-Craftsmanship/dp/0132350882) a casa, una auténtica maravilla escrita. En Clean
-Code, [Robert C. Martin](http://cleancoder.posterous.com/) despliega un estilo
+fundamentos teóricos de los que entonces carecía. Por ello me llevé
+[Clean Code](http://www.amazon.es/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882)
+a casa, una auténtica maravilla escrita. En Clean Code,
+[Robert C. Martin](http://cleancoder.posterous.com/) despliega un estilo
 de programación muy cercano a la artesanía, y su visión preclara resulta una
 fuente inmejorable para mejorar nuestra propia codificación.
 
@@ -99,31 +100,29 @@ teníamos muchos problemas para terminar los sprints y había algunos aspectos
 de la estimación y planificación que no me cuadraban. Pedí a la empresa unos
 cuantos libros más y seguí leyendo.
 
-[Agile Coaching](http://www.amazon.com/Agile-Coaching-Rachel-
-Davies/dp/1934356433) es un buen libro introductorio. No solo en sus
+[Agile Coaching](http://www.amazon.com/Agile-Coaching-Rachel-Davies/dp/1934356433)
+es un buen libro introductorio. No solo en sus
 explicaciones sobre Scrum, también porque explica algunos fundamentos de
 psicología de grupos y ofrece algunos consejos bastante interesantes. Pero me
-quedé con ganas de más, y me lo ofreció [Mike
-Cohn](http://en.wikipedia.org/wiki/Mike_Cohn).
+quedé con ganas de más, y me lo ofreció
+[Mike Cohn](http://en.wikipedia.org/wiki/Mike_Cohn).
 
-[Agile Estimating and Plannning](http://www.amazon.com/Agile-Estimating-
-Planning-Mike-Cohn/dp/0131479415) explica con todo lujo de detalles cómo
-introducir Scrum en un equipo, cómo estimar, cómo planificar un proyecto y un
+[Agile Estimating and Plannning](http://www.amazon.com/Agile-Estimating-Planning-Mike-Cohn/dp/0131479415)
+explica con todo lujo de detalles cómo introducir Scrum en un equipo, cómo estimar, cómo planificar un proyecto y un
 sprint, y despliega todo un trasfondo sobre cómo salir al paso a las muchas
 dificultades que un equipo puede enfrentarse en su camino a través de Scrum.
 
 Tras la lectura del libro de Mike Cohn empecé una revisión casi completa de la
 manera en la que estábamos aplicando la metodología. Introduje algunas
-prácticas nuevas como las [reuniones
-retrospectivas](http://www.agilegamedevelopment.com/2008/06/when-we-talk-
-about-agile-we-use-phrase.html) e intenté modificar la manera en la que
+prácticas nuevas como las 
+[reuniones retrospectivas](http://www.agilegamedevelopment.com/2008/06/when-we-talk-about-agile-we-use-phrase.html) e intenté modificar la manera en la que
 estimábamos y definíamos las user stories. El agilismo es una cuestión de
 equipo e inculcar estos cambios me ha resultado particularmente difícil.
 Algunas cosas siguen sin funcionar y aún queda mucho por aprender y
 experimentar.
 
-Otro libro sobre Scrum es [Scrum and XP From The
-Trenches](http://www.infoq.com/minibooks/scrum-xp-from-the-trenches). Es muy
+Otro libro sobre Scrum es
+[Scrum and XP From The Trenches](http://www.infoq.com/minibooks/scrum-xp-from-the-trenches). Es muy
 finito y se lee en menos de un fin de semana, y presenta una visión muy
 directa y aplicada de la metodología. He de reconocer que no estuve de acuerdo
 con algunas reflexiones del autor, pero no descarto que en futuras relecturas
@@ -141,10 +140,8 @@ llevado a cometer muchos, muchísimos errores y a volver a casa con muchísimos
 disgustos.
 
 Ejerciendo de psicólogo paciente, mi compañero de profesión y amigo
-[Alessandro](http://almadeweb.es/) me prestó [Managing
-Humans](http://www.amazon.com/Managing-Humans-Humorous-Software-
-Engineering/dp/159059844X), un libro muy recomendable para todos los que se
-encuentran con problemas como los que describo.
+[Alessandro](http://almadeweb.es/) me prestó
+[Managing Humans](http://www.amazon.com/Managing-Humans-Humorous-Software-Engineering/dp/159059844X), un libro muy recomendable para todos los que se encuentran con problemas como los que describo.
 
 ### Descanso necesario
 
@@ -165,8 +162,8 @@ es un libro de primera línea. Y poco a poco voy recuperando aliento.
 
 ### Conclusiones
 
-A mediados de este mes desplegamos [la nueva
-release](http://www.educapoker.com). Era el cambio más importante que habíamos
+A mediados de este mes desplegamos
+[la nueva release](http://www.educapoker.com). Era el cambio más importante que habíamos
 hecho en la web desde sus inicios, y para mí suponía un hito especialmente
 importante. Porque el éxito o fracaso de ese despliegue reflejaría los frutos
 de nuestros esfuerzos colectivos. Y también de mi esfuerzo individual.
