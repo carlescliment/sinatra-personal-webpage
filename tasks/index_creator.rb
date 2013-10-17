@@ -1,4 +1,6 @@
 require_relative './../model/markdown_post_provider'
+require_relative './disable_custom_markdown'
+
 
 class IndexCreator
 
@@ -27,7 +29,7 @@ class IndexCreator
   end
 
   def load_post_from_file(basename)
-      MarkdownPostProvider.load(basename, @sources, true)
+      MarkdownPostProvider.load(basename, @sources)
   end
 
 

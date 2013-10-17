@@ -12,7 +12,7 @@ If you have visited my blog before may be you remember my old but cute Drupal we
 
 The most shocking change you will probably notice is that I am talking to you in English. It makes me writing posts a bit harder, and may be you do not read me as fluently as before if you are Spanish. But, hey, this is good for both of us.
 
-There are many reasons to write a blog in English, but the one I'm doing it to is: English is the _lingua franca_ in the Internet and we all should be using it for professional matters. Furthermore, I feel a lack of comfort with my English and want to practise and get better. I think these are enough reasons for making the switch, don't you?
+There are many reasons to write a blog in English, but the one because I'm doing it is: face it, English is the _lingua franca_ in the Internet and we all should be using it for professional matters. Furthermore, I feel a lack of comfort with my English and want to practise and get better. I think these are enough reasons for making the switch, don't you?
 
 My twitter will still be in Spanish, so long as I consider it in my personal, not professional, space.
 
@@ -23,7 +23,7 @@ The other big change is the move from Drupal to Sinatra. Drupal is okay for buil
 
 **Learning**
 
-  Yes, I am currently discovering Ruby (although I did a small project with Rails a year ago or so) and writing an own personal webpage is a good place to start with.
+  Yes, I am currently discovering Ruby (although I did a small project with Rails a year ago or so) and writing an own personal webpage is a good place to start.
 
 **Removing waste**
 

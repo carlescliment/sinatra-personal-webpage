@@ -456,7 +456,7 @@ Existe otro tipo de acoplamiento denominado acoplamiento temporal que se produce
 
 ## Conclusiones
 
-Este artículo no nació para ser artículo. En principio no era más que un esqueleto para ordenar las ideas que quería exponer en una charla sobre calidad en [Agile Levante](http://agilelevante.wordpress.com/). Pero a medidaque iba añadiendo notas sueltas sobre el papel, el esbozo fue tomando forma. Sin darme cuenta había escrito varias páginas medianamente descriptivas y ya no había vuelta atrás. No podía parar de escribir.
+Este artículo no nació para ser artículo. En principio no era más que un esqueleto para ordenar las ideas que quería exponer en una charla sobre calidad en [Agile Levante](http://agilelevante.wordpress.com/). Pero a medida que iba añadiendo notas sueltas sobre el papel, el esbozo fue tomando forma. Sin darme cuenta había escrito varias páginas medianamente descriptivas y ya no había vuelta atrás. No podía parar de escribir.
 
 He redactado este artículo en cinco intensos días. He tenido que excavar en mi memoria para rescatar ideas que empezaban a quedarse enterradas. Me he desesperado intentando expresar ideas que no conseguía explicarme a mí mismo. Al final, algo ha salido. Mi experiencia de un año dedicado en buena parte al estudio de la calidad del software.
 
