@@ -22,8 +22,4 @@ class Post
     @href
   end
 
-  def format_date
-    @date.strftime("%A, %d %B %Y")
-  end
-
 end

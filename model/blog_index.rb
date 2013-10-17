@@ -1,3 +1,6 @@
+require_relative './post'
+require_relative './post_decorator'
+
 class BlogIndex
 
   def initialize(max_per_page = 10, current_page = 0)
@@ -9,7 +12,8 @@ class BlogIndex
   def load(index_file)
     collection = YAML.load_file(index_file)
     collection.each do |post_data|
-      @posts << Post.new(post_data[:title], nil, post_data[:date], post_data[:href])
+      post = Post.new(post_data[:title], nil, post_data[:date], post_data[:href])
+      @posts << PostDecorator.new(post)
     end
   end
 
