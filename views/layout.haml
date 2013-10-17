@@ -10,7 +10,6 @@
     %link(rel="stylesheet" href="/stylesheets/github.css")
     %link(rel="stylesheet" href="/stylesheets/customizations.css")
     %link(rel="icon" type="image/png" href="/images/favicon.png")
-    = yield_content(:javascripts)
 
   %body
     %nav.top-bar
@@ -35,3 +34,5 @@
       %div.row.footer
         %div.large-12.columns.text-center
           Copyright © 2013 carlescliment.com
+
+    = yield_content(:javascripts)
