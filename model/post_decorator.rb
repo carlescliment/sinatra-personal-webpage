@@ -12,4 +12,8 @@ class PostDecorator
     @post.date.strftime("%A, %d %B %Y")
   end
 
+  def unique_id
+    @post.title.downcase.gsub(' ', '_')
+  end
+
 end

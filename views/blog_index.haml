@@ -17,7 +17,7 @@
           %date{ :date => post.date }
             =post.format_date
           %h3
-            %a{ :href => post.href }
+            %a{ :href => post.href, 'data-disqus-identifier' => post.unique_id }
               =post.title
 
 %div.row

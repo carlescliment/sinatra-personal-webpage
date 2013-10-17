@@ -23,7 +23,7 @@ class IndexCreator
     Dir.glob("#{@sources}/*.md") do |md_file|
       basename = File.basename(md_file, ".md")
       post = load_post_from_file(basename)
-      index << { :title => post.title, :date => post.date, :href => "#{@url}/#{basename}" }
+      index << { :title => post.title, :date => post.date, :href => "#{@url}/#{basename}#disqus_thread" }
     end
     index
   end

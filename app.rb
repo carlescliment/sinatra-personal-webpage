@@ -61,7 +61,7 @@ class PersonalWebPage < Sinatra::Base
   def load_post_or_404(title, config)
     begin
       dir = settings.root + '/' + config['source_dir']
-      MarkdownPostProvider.load(title, dir)
+      PostDecorator.new(MarkdownPostProvider.load(title, dir))
     rescue
       error 404, 'Page not found'
     end
