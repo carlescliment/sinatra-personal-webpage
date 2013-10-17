@@ -1,3 +1,6 @@
+- content_for(:javascripts) do
+  %script(type="text/javascript" src="/javascript/disqus.js")
+
 - content_for(:title) do
   =post.title
 
@@ -8,3 +11,5 @@
     =post.title
 
 =haml :_post, :locals => { :post => post }
+
+%div#disqus_thread

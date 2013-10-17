@@ -3,14 +3,14 @@
 
   %head
     %title
-      Carles Climent - 
+      Carles Climent -
       = yield_content(:title)
     %link(rel="stylesheet" href="/stylesheets/foundation.min.css")
     %link(rel="stylesheet" href="/stylesheets/foundation-icons.css")
     %link(rel="stylesheet" href="/stylesheets/github.css")
     %link(rel="stylesheet" href="/stylesheets/customizations.css")
     %link(rel="icon" type="image/png" href="/images/favicon.png")
-    %script(type="text/javascript" href="/javascript/disqus.js")
+    = yield_content(:javascripts)
 
   %body
     %nav.top-bar
