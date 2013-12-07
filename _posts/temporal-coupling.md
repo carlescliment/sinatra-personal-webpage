@@ -29,9 +29,9 @@ So this is what we have:
 ```python
 # recipes.py
 
-""""
+"""
 The controller
-""""
+"""
 class RecipeController:
 
     def create(self, request):
@@ -45,9 +45,9 @@ class RecipeController:
         # ...
         return recipe
 
-""""
+"""
 The creator
-""""
+"""
 class RecipeCreator:
 
     def __init__(self, database, mailer, logger):
@@ -75,12 +75,12 @@ class RecipeCreator:
 
 ```
 
-The `RecipeCreator` is the only class of the system that knows how to create recipes. One day, while we are having a shower, we have a great idea: we could provide our application as a framework, so that everybody could create and host its own cooking recipes website. We package our application as a lib, publish it in Github and feel that we have done a great service to the humankind.
+The `RecipeCreator` is the only class that knows how to create recipes. One day, while we are having a shower, we have a great idea: we could provide our application as a framework, so that everybody could create and host its own cooking recipes website. We package our application, publish it on Github and feel that we have done a great service to the humankind.
 
 
-One day, a fellow developer writes to us. He is using our component but he doesn't want to receive emails anymore. His application is more successfull than ours, and he begins to feel very overwhelmed. The problem is he doesn't know how to change the behaviour when creating a new recipe.
+Months later, a fellow developer writes to us. She is using our component but she doesn't want to receive emails anymore. Her application is more successfull than ours, and she begins to feel overwhelmed by the amount of emails received. The problem is that she doesn't know how to change the behaviour without hacking the framework.
 
-Everything is temporally coupled. How can we solve the temporal coupling, then?
+Everything is temporally coupled. How could we improve it?
 
 
 
@@ -146,7 +146,6 @@ class SilentRecipeCreator(RecipeCreator):
 
     def create(self, recipe):
         self.save(recipe)
-        self.send_mail_to_admins(recipe)
 ```
 
 After looking at all that classes overriding methods, we realize hoy messy it is. We would need **a subclass for every single combination**!
@@ -199,12 +198,12 @@ class Recipe:
 
 class EmailRecipeObserver:
 
-    def notify(self, recipe):
+    def notify(self, event_name, recipe):
         #...
 
 class LogRecipeObserver:
 
-    def notify(self, recipe):
+    def notify(self, event_name, recipe):
         #...
 
 ```
@@ -228,7 +227,7 @@ class RecipeController:
 
     def create(self, request):
         recipe = self.extract_recipe_from_request(request)
-        database = app.service('recipe_creator')
+        database = app.service('database')
         recipe.save(database)
         app.call_mediator('recipe_save', recipe)
 
