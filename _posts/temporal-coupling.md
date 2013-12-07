@@ -14,9 +14,9 @@ In case that anybody else makes the same research in the future, I would like to
 
 According to [the article in wikipedia](http://en.wikipedia.org/wiki/Coupling_(computer_programming)):
 
------------------------------------------------------------------------------
-> When two actions are bundled together into one module just because they happen to occur at the same time.
------------------------------------------------------------------------------
+```
+When two actions are bundled together into one module just because they happen to occur at the same time.
+```
 
 In code, imagine we have a website that manages cooking recipes. It provides a form that allows cookers to publish their own recipes. Each time a form is submitted, three things happen:
 
@@ -27,25 +27,27 @@ In code, imagine we have a website that manages cooking recipes. It provides a f
 So this is what we have:
 
 ```python
+# recipes.py
 
-##
-# The controller
-##
+""""
+The controller
+""""
 class RecipeController:
 
     def create(self, request):
         recipe = self.extract_recipe_from_request(request)
         creator = app.service('recipe_creator')
         creator.create(recipe)
+        redirect("/recipes/%d"%(recipe.id))
 
 
     def extract_recipe_from_request(self, request):
         # ...
         return recipe
 
-##
-# The creator
-##
+""""
+The creator
+""""
 class RecipeCreator:
 
     def __init__(self, database, mailer, logger):
@@ -88,6 +90,8 @@ Everything is temporally coupled. How can we solve the temporal coupling, then?
 We struggle our minds thinking on how can our mate solve her problem. The first idea is, what if we add flags to the create method?
 
 ```python
+# recipes.py
+
 class RecipeCreator:
 
     #...
@@ -100,7 +104,7 @@ class RecipeCreator:
             self.log_new_recipe(recipe)
 ```
 
-Now, he just has to change his controller, calling the component with the appropriate flags:
+Now, she just has to change his controller, calling the component with the appropriate flags:
 
 ```
     creator.create(recipe, false, true)
@@ -109,9 +113,11 @@ Now, he just has to change his controller, calling the component with the approp
 After thinking a bit more, we arrive to the conclusion that this is not a good idea. Conditionals makes classes more complex and unpredictable, because **there are different possible execution flows**. It also doesn't seem a very object oriented approach.
 
 ### Inheritance
-Instead, we write a new class `LoggerOnlyRecipeCreator` which inherits the original creator. Other apps could configure their services depending on what class do they want to use.
+Instead, we write a new class `LoggerOnlyRecipeCreator` which inherits the original creator. The child overrides the parent default behaviour, skipping the email stuff. Other apps could configure their services depending on the class they want to use.
 
 ```python
+# recipes.py
+
 class LoggerOnlyRecipeCreator(RecipeCreator):
 
     #...
@@ -124,6 +130,8 @@ class LoggerOnlyRecipeCreator(RecipeCreator):
 We hurry to write other possible combinations. We don't want more complaints!
 
 ```python
+# recipes.py
+
 class MailOnlyRecipeCreator(RecipeCreator):
 
     #...
@@ -144,11 +152,13 @@ class SilentRecipeCreator(RecipeCreator):
 After looking at all that classes overriding methods, we realize hoy messy it is. We would need **a subclass for every single combination**!
 
 
-### Composition
+### Null objects
 
 We have heard many times that composition is better than inheritance. The creator uses composition, receiving a mailer and a logger in the constructor, so maybe we can make the most of it. We write **null objects**.
 
 ```python
+# recipes.py
+
 class NullMailer:
 
     def send(self, email):
@@ -161,7 +171,7 @@ class NullLogger:
         pass
 ```
 
-Hey, that seems clever! Now anyone could inject a `NullMailer` or a `NullLogger` if he doesn't want things to happen. But there is something weird about passing objects that do nothing, right? Should we **write Null versions for each component** in our application? Doesn't this seem a bad design.
+Hey, that seems clever! Now anyone could inject a `NullMailer` or a `NullLogger` if he doesn't want things to happen. But there is something weird about passing objects that do nothing, right? Should we **write Null versions for each component** in our application? Seems not a good design to us, so we keep on thinking.
 
 
 
@@ -173,6 +183,8 @@ Hey, that seems clever! Now anyone could inject a `NullMailer` or a `NullLogger`
 In the observer pattern, a recipe would own a set of observers. When needed, the recipe would notify them.
 
 ```python
+# recipes.py
+
 class Recipe:
 
     def __init__(self, observers = []):
@@ -210,6 +222,8 @@ The problem with the observer pattern is that it couples instances being observe
 The Mediator pattern resolves some of the problems seen in the Observer pattern. Basically, it adds a class between the observers and the objects being observed, decoupling them. Because an instance should not even know that it is being observed, we don't inject the mediator in the recipe constructor. All the stuff is controlled by the controller. Seems logical, right?
 
 ```python
+# recipes.py
+
 class RecipeController:
 
     def create(self, request):
@@ -228,7 +242,7 @@ class Mediator:
             observer.call('event_name', instance)
 ```
 
-This is a very simple implementation of the Mediator pattern, in which all the observers are called for each event.
+This is a very simple implementation of the Mediator pattern, in which all the observers are called for each event. Of course more efficient versions could be written.
 
 
 After implementing the mediator, we promise not to fall into temporal coupling again when publishing services.
