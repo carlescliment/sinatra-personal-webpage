@@ -5,7 +5,7 @@ date: 2013-12-07
 
 ## Introduction
 
-During the last days I've been really busy writing some materials for a course I'll be giving about Symfony 2. I try not to remain on the basics, but also explain as deeply as I can the reasons behind each design decision in the framework. I tend to do a little research before writing things down and take the best explanations I find as a reference. But today, looking for good materials about temporal coupling, I got lost.
+During the last days I've been really busy writing some materials for a course I'll be giving about Symfony 2. I try not to remain on the basics, but also explain as deeply as I can the reasons behind each design decision in the framework. I tend to do a little research before writing things down and take the best explanations I find as a reference. But today, looking for good articles about temporal coupling, I got lost.
 
 In case that anybody else makes the same research in the future, I would like to bring some water to the field.
 
@@ -36,9 +36,9 @@ class RecipeController:
 
     def create(self, request):
         recipe = self.extract_recipe_from_request(request)
-        creator = app.service('recipe_creator')
+        creator = self.app.service('recipe_creator')
         creator.create(recipe)
-        redirect("/recipes/%d"%(recipe.id))
+        return self.redirect("/recipes/%d"%(recipe.id))
 
 
     def extract_recipe_from_request(self, request):
@@ -51,9 +51,9 @@ The creator
 class RecipeCreator:
 
     def __init__(self, database, mailer, logger):
-        self.database = database
-        self.mailer     = mailer
-        self.logger     = logger
+        self.database    = database
+        self.mailer         = mailer
+        self.logger         = logger
 
 
     def create(self, recipe):
@@ -98,13 +98,13 @@ class RecipeCreator:
 
     def create(self, recipe, send_mail = true, log = true):
         self.save(recipe)
-        if (send_mail):
+        if send_mail:
             self.send_mail_to_admins(recipe)
-        if (log):
+        if log:
             self.log_new_recipe(recipe)
 ```
 
-Now, she just has to change his controller, calling the component with the appropriate flags:
+Now, she just has to change her controller, calling the component with the appropriate flags:
 
 ```
     creator.create(recipe, false, true)
@@ -211,8 +211,7 @@ class LogRecipeObserver:
 Then each observer could do its task. Changing the behaviour is as easy as passing the corresponding observers when creating the recipe. No creator class is needed in the middle.
 
 The problem with the observer pattern is that it couples instances being observed with their observers. Or more far going, **a class should not even know that it is being observed**. A lot has been written about the inconveniences of the Observer pattern. This post in StackOverflow is a good start:
-
-[Why should the observer pattern be deprecated](http://stackoverflow.com/questions/11619680/why-should-the-observer-pattern-be-deprecated)
+[Why should the observer pattern be deprecated](http://stackoverflow.com/questions/11619680/why-should-the-observer-pattern-be-deprecated).
 
 
 
@@ -227,7 +226,7 @@ class RecipeController:
 
     def create(self, request):
         recipe = self.extract_recipe_from_request(request)
-        database = app.service('database')
+        database = self.app.service('database')
         recipe.save(database)
         app.call_mediator('recipe_save', recipe)
 
@@ -236,9 +235,9 @@ class Mediator:
     def __init__(self, observers = []):
         self.observers = observers
 
-    def call(event_name, instance):
+    def call(self, event_name, instance):
         for observer in self.observers:
-            observer.call('event_name', instance)
+            observer.call(event_name, instance)
 ```
 
 This is a very simple implementation of the Mediator pattern, in which all the observers are called for each event. Of course more efficient versions could be written.
