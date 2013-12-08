@@ -96,7 +96,7 @@ class RecipeCreator:
 
     #...
 
-    def create(self, recipe, send_mail = true, log = true):
+    def create(self, recipe, send_mail = True, log = True):
         self.save(recipe)
         if send_mail:
             self.send_mail_to_admins(recipe)
@@ -107,10 +107,10 @@ class RecipeCreator:
 Now, she just has to change her controller, calling the component with the appropriate flags:
 
 ```
-    creator.create(recipe, false, true)
+    creator.create(recipe, False, True)
 ```
 
-After thinking a bit more, we arrive to the conclusion that this is not a good idea. Conditionals makes classes more complex and unpredictable, because **there are different possible execution flows**. It also doesn't seem a very object oriented approach.
+After thinking a bit more, we arrive to the conclusion that this is not a good idea. Conditionals make classes more complex and unpredictable, because **there are different possible execution flows**. It also doesn't seem a very object oriented approach.
 
 ### Inheritance
 Instead, we write a new class `LoggerOnlyRecipeCreator` which inherits the original creator. The child overrides the parent default behaviour, skipping the email stuff. Other apps could configure their services depending on the class they want to use.
@@ -148,7 +148,7 @@ class SilentRecipeCreator(RecipeCreator):
         self.save(recipe)
 ```
 
-After looking at all that classes overriding methods, we realize hoy messy it is. We would need **a subclass for every single combination**!
+After looking at all that classes overriding methods, we realize hoy messy it is. We would need **a subclass for every single combination**! What if complexity grows? More and more subclasses would be needed.
 
 
 ### Null objects
