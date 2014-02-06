@@ -46,6 +46,8 @@ La inversión de control[6], también conocida como *Principio de Hollywood* en 
 A diferencia de la tradición procedural, los componentes de mayor nivel son responsables de proporcionar abstracciones a los de menor nivel. Las instancias concretas de estas abstracciones son reemplazables y necesitan una interfaz común. El flujo por lo tanto se invierte, ahora son las capas superiores las que controlan a las inferiores, y no al revés.
 
 ```
+// Inversion of control
+
 public function save(array $account_data) {
     $account = Account::createFromArray($account_data);
     // we call a higher-level class
@@ -95,6 +97,8 @@ Allocation of behavior between objects is the essence of object-oriented design,
 La Ley de Démeter[11][12] es un principio de diseño de software que tiene como objeto desacoplar las conexiones entre objetos, en busca de sistemas _"Adaptativos"_. Formalmente dice:
 
 ```
+Ley de Démeter:
+
 Un método "M" de un objeto "O" solo debería invocar a;
 
 - Sí mismo.
@@ -106,6 +110,7 @@ Un método "M" de un objeto "O" solo debería invocar a;
 La idea subyacente es evitar la invocación de métodos en cadena, que implican el conocimiento de los componentes internos de otras clases.
 
 ```
+// Demeter Law
 $this->getDoctrine()->getEntityManager()->flush();
 ```
 
@@ -536,3 +541,241 @@ $mailer = ApplicationMailer::createDefault();
 ```
 
 Uno de los puntos fuertes de este patrón es que se obtiene un **diseño muy sencillo**, dado que el conocimiento de construcción está en la propia clase. Además puede resultar muy potente al **encadenar métodos de construcción**. No resulta apropiado en sistemas muy complejos donde la flexibilidad es importante.
+
+
+## Generalización
+
+### Form Template Method
+
+Este es un patrón que combina el refactoring pull-up method con polimorfismo. Se aplica cuando dos clases tienen un método muy similar, pero con pequeñas variantes.
+
+
+```php
+// Form Template Method v1
+
+class CustomerRepository {
+
+    public function fromRequest(Request $request, Request_Processor $processor) {
+        $query_builder = new QueryBuilder( new Query_Wrapper );
+        $query_builder->select('c.*')
+            ->from('customers', 'c')
+            ->join('agencies', 'a', 'c.agency_id=a.id');
+        $processor->applyToBuilder( $request, $query_builder );
+        return $query_builder->execute();
+    }
+}
+
+
+class EmployeeRepository {
+
+    public function fromRequest(Request $request, Request_Processor $processor) {
+        $query_builder = new QueryBuilder( new Query_Wrapper );
+        $query_builder->select('e.*')
+            ->from('employees', 'e');
+        $processor->applyToBuilder( $request, $query_builder );
+        return $query_builder->execute();
+    }
+}
+
+```
+
+```php
+// Form Template Method v2
+
+abstract class Repository {
+
+    protected abstract function setBaseQuery( QueryBuilder $query_builder );
+
+    public function fromRequest(Request $request, Request_Processor $processor) {
+        $query_builder = new QueryBuilder( new Query_Wrapper );
+        $this->setBaseQuery( $query_builder );
+        $processor->applyToBuilder( $request, $query_builder );
+        return $query_builder->execute();
+    }
+}
+
+
+class CustomerRepository extends Repository {
+
+    protected function setBaseQuery( QueryBuilder $query_builder) {
+        $query_builder->select('c.*')
+            ->from('customers', 'c')
+            ->join('agencies', 'a', 'c.agency_id=a.id');
+    }
+}
+
+
+class EmployeeRepository extends Repository {
+
+    protected function setBaseQuery( QueryBuilder $query_builder) {
+        $query_builder->select('e.*')
+            ->from('employees', 'e');
+    }
+}
+
+```
+
+
+### Unificar interfaces con Adapter
+
+Utilizamos una clase adaptadora para permitir la sustitución de componentes sin afectar al resto del código.
+
+![Adapter](/images/orientacion_objetos_02_2014/adapter.jpg)
+
+
+### Interpreter
+
+El patrón Interpreter sirve para evaluar sentencias en un lenguaje implícito. Por ejemplo, una clase que permitiese evaluar una expresión como la siguiente:
+
+```
+// Interpreter
+$sentence = "Roses are red, the sky is blue, and all your base are belong to us.";
+$interpreter->execute($sentence);
+
+array(
+    'roses'         => 'red',
+    'sky'           => 'blue',
+    'all your base' => 'belongs to us'
+);
+```
+
+Para más ejemplos sobre evaluación de expresiones con interpreter, consultar tests de [QueryBuilder](https://github.com/carlescliment/query-builder/blob/master/tests/carlescliment/QueryBuilder/QueryBuilderTest.php#L155).
+
+
+## Simplificación
+
+### Command
+El patrón command permite eliminar condicionales a través de un ejecutor y varios colaboradores (comandos).
+
+
+```
+// Command v1
+
+class PasswordValidator {
+
+    const MIN_LENGTH = 8;
+
+    public function validate($password) {
+        if (strlen($password) < 8) {
+            return new InvalidValidation(sprintf('Password must contain at least %d chars', self::MIN_LENGTH));
+        }
+        if (!preg_match('/[A-Z]+/', $password)) {
+            return new InvalidValidation(sprintf('Password must contain an uppercase'));
+        }
+        if (!preg_match('/[0-9]+/', $password)) {
+            return new InvalidValidation(sprintf('Password must contain a number'));
+        }
+        // Many other validations
+        return new ValidValidation();
+    }
+}
+```
+
+```
+// Command v2
+
+class PasswordValidator {
+
+    private $rules = array();
+
+    public function addRule(PasswordRule $rule) {
+        $this->rules[] = $rule;
+    }
+
+    public function validate($password) {
+        foreach ($this->rules as $rule) {
+            $validation = $rule->validate($password);
+            if ($validation->isInvalid()) {
+                return $validation;
+            }
+        }
+        return new ValidValidation();
+    }
+}
+
+$validator = new PasswordValidator();
+$validator->addRule(new PasswordRules\MinLength(8));
+$validator->addRule(new PasswordRules\ContainsUppercase());
+$validator->addRule(new PasswordRules\ContainsNumeric());
+//
+$validator->validate('my password');
+```
+
+## Protección
+
+### Null object
+
+Null Object permite manejar las respuestas de una forma uniforme, sin condicionales:
+
+```php
+// null object v1
+$logger = $this->getLogger();
+if ($logger) {
+    $logger->log('All your bases are belong to us');
+}
+```
+
+```php
+// null object v2
+
+class NullLogger {
+
+    public function log($message) {
+        return true;
+    }
+}
+
+
+$logger = $this->getLogger();
+$logger->log('All your bases are belong to us');
+```
+
+
+Null Object es un patrón estupendo para cancelar procesos indeseados en entornos de testing (emails, transmisiones FTP, etc)...
+
+
+## Recopilación
+
+### Collecting Parameter
+
+```php
+// collecting parameter v1
+
+class ScoreUpdater {
+
+    public function update(Player $player, Stage $stage) {
+        $score = 0;
+        $score += $this->getMobKillingPoints($stage);
+        $score += $this->getTravellingPoints($stage);
+        $score += $this->getNPCInteractionPoints($stage);
+        $score += $this->getItemPoints($stage);
+        $player->addPoints($score);
+        return $this;
+    }
+}
+```
+
+```php
+// collecting parameter v2
+
+class ScoreUpdater {
+
+    private $modifiers = array();
+
+    public function addModifier(ScoreModifier $modifier) {
+        $this->modifiers[] = $modifier;
+    }
+
+    public function update(Player $player, Stage $stage) {
+        $score = new Score(0);
+        foreach ($this->modifiers as $modifier) {
+            $modifier->applyTo($score);
+        }
+        $player->addScore($score);
+    }
+}
+```
+
+
+
+# ¡Y esto es todo por hoy!
