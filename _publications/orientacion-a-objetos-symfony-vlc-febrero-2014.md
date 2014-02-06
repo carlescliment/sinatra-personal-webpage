@@ -1,6 +1,6 @@
 ---
 title: Orientación a objetos, Principio de Hollywood y algunos patrones
-date: 2013-02-07
+date: 2014-02-07
 ---
 
 # Parte I: Conceptos Teóricos
