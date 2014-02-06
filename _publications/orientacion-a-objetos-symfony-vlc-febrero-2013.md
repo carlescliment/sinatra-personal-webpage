@@ -10,9 +10,9 @@ date: 2013-02-07
 A menudo pienso que nuestra travesía en el campo de la programación se parece a la de los escaladores. Ambos buscamos una cima, el conocimiento en nuestro caso, y ambos debemos conducir nuestro ascenso con paciencia y sin atajos. En cada nueva técnica que aprendemos y en cada concepto que asimilamos aseguramos nuestra subida con un nuevo punto de anclaje. A diferencia de los escaladores, los programadores no asumimos ningún riesgo en nuestro avance, más al contrario avanzamos gracias a nuestros errores. Nuestro inconveniente, sin embargo, es que nuestra cima es inalcanzable. A medida que avanzamos hacia ella se nos revela más y más lejana. Por eso, tal vez en nuestro caso, lo que importa no es lo que queda por recorrer sino lo que ya hemos avanzado.
 
 ![Mito de Sísifo](/images/orientacion_objetos_02_2014/sisifo.jpg)
-```
-Así como Sísifo empuja eternamente su roca, los programadores aprendemos para descubrir que seguimos sabiendo apenas nada.
-```
+
+> Así como Sísifo empuja eternamente su roca, los programadores aprendemos para descubrir que seguimos sabiendo apenas nada.
+
 
 
 En mi escalada particular he encontrado grandes puntos de anclaje. En orden cronológico destacaría la lectura de *Clean Code*, el contacto con el *Test Driven Development* y el estudio de *Patrones de Diseño*, en el que ando ahora inmerso.
@@ -26,11 +26,11 @@ Siempre con la *Orientación a Objetos* como trasfondo, a pesar de ir aprendiend
 
 El acrónimo SOLID no puede faltar en toda charla o coloquio sobre orientación a objetos. No puedo resistirme a hacer un pequeño repaso a este conjunto de principios que nos regalaron Uncle Bob y otros autores. Conviene estudiar estos principios detenidamente a través de sus autores.
 
-- **S**ingle Responsibility Principle[1]: Toda clase debería hacer una (y solo una) cosa. Formulada de otra manera, solo debería haber un único motivo para modificar una clase.
-- **O**pen/Closed Principle[2]: Abierto a extensión, cerrado a modificación. Utilizar abstracciones en lugar de instancias concretas. Evitar atributos públicos y protegidos. Evitar variables globales. _Ejemplo cerrado a extensión: query builder_.
-- **L**iskov Substitution Principle[3]: Si B es una subclase de A, entonces deberíamos poder cambiar todas las instancias de A por instancias de B sin afectar a los clientes que las utilizan.
-- **I**nterface Segregation Principle[4]: Los clientes no deberían verse obligados a depender de interfaces que no necesitan. Evita interfaces complejas segregándolas en otras más pequeñas. _Ejemplo interfaz contaminada: Once, Testable_
-- **D**ependency Inversion Principle[5]: Las clases de mayor nivel no deberían depender de las clases de menor nivel. Ambas deberían depender de abstracciones. Las abstracciones no deberían depender de detalles. Los detalles deberían depender de abstracciones.
+- **Single Responsibility Principle**[1]: Toda clase debería hacer una (y solo una) cosa. Formulada de otra manera, solo debería haber un único motivo para modificar una clase.
+- **Open/Closed Principle**[2]: Abierto a extensión, cerrado a modificación. Utilizar abstracciones en lugar de instancias concretas. Evitar atributos públicos y protegidos. Evitar variables globales. _Ejemplo cerrado a extensión: query builder_.
+- **Liskov Substitution Principle**[3]: Si B es una subclase de A, entonces deberíamos poder cambiar todas las instancias de A por instancias de B sin afectar a los clientes que las utilizan.
+- **Interface Segregation Principle**[4]: Los clientes no deberían verse obligados a depender de interfaces que no necesitan. Evita interfaces complejas segregándolas en otras más pequeñas. _Ejemplo interfaz contaminada: Once, Testable_
+- **Dependency Inversion Principle**[5]: Las clases de mayor nivel no deberían depender de las clases de menor nivel. Ambas deberían depender de abstracciones. Las abstracciones no deberían depender de detalles. Los detalles deberían depender de abstracciones.
 
 
 Familiarizarse con SOLID es costoso. ¡Son muchos conceptos que asimilar! Además el principal problema de SOLID es que explica cómo debería ser nuestro código, pero no nos ofrece una guía para llegar a él. Personalmente, mis intentos de hacer _buena_ programación orientada a objetos tomando como referencia SOLID han acabado bastante mal, con multitud de clases e interfaces innecesarias y otras señales de sobreingeniería. Pienso que SOLID debe llegar por sí mismo, sin forzar, a través del dominio del refactoring y el estudio de principios de diseño.
@@ -45,9 +45,8 @@ La inversión de control[6], también conocida como *Principio de Hollywood* en 
 
 A diferencia de la tradición procedural, los componentes de mayor nivel son responsables de proporcionar abstracciones a los de menor nivel. Las instancias concretas de estas abstracciones son reemplazables y necesitan una interfaz común. El flujo por lo tanto se invierte, ahora son las capas superiores las que controlan a las inferiores, y no al revés.
 
-```
-// Inversion of control
-
+```php
+<?php
 public function save(array $account_data) {
     $account = Account::createFromArray($account_data);
     // we call a higher-level class
@@ -63,6 +62,7 @@ public function save(array $account_data, ObjectManager $om) {
     $om->persist($account);
     // ...
 }
+?>
 ```
 
 La técnica más común para conseguir la inversión de control es la **inyección de dependencias**. En los lenguajes de programación dinámicos existen algunas alternativas, como la metaprogramación, que no veremos en este material. La clave consiste en asegurar un flujo unidireccional de ejecución, desde clases de mayor nivel de abstracción hacia clases de mayor detalle. Los sistemas informáticos se convierten así en un conjunto coherente de piezas sustituíbles. Estas piezas no se transforman cada vez que surge un nuevo requisito, sino que se reemplazan.
@@ -72,15 +72,12 @@ La técnica más común para conseguir la inversión de control es la **inyecci�
 
 En la Biblioteca Pragmática, Andy Hunt y Dave Thomas escribieron un artículo llamado _Tell, don't ask_[7] en el que describían este principio. El artículo empezaba con una cita del libro _Smalltalk By Example_, disponible gratuítamente en la Red[8].
 
-```
-Procedural code gets information then makes decisions. Object-oriented code tells objects to do things.
-```
+> Procedural code gets information then makes decisions. Object-oriented code tells objects to do things.
+
 
 En su artículo, Hunt y Thomas advierten de los riesgos de romper el encapsulamiento a través de la extracción de los datos de otras clases. Esto es,
 
-```
-The fundamental principle of Object Oriented programming is the unification of methods and data.
-```
+> The fundamental principle of Object Oriented programming is the unification of methods and data.
 
 Exponiendo el estado de una clase a las demás para que aquellas puedan manipularla no sólo estamos violando su encapsulamiento y asumiendo riesgos, sino que estamos moviendo responsabilidades hacia las clases de mayor nivel.
 
@@ -88,30 +85,28 @@ Siguiendo los razonamientos de los autores, cuando una clase requiera conocer el
 
 Martin Fowler escribe también sobre este principio[9], y aunque coincide en la importancia de la co-locación de estado y comportamiento, recuerda que también deben tomarse en consideración otros aspectos como la separación en capas. En su artículo GetterEradicator[10], Fowler escribe:
 
-```
-Allocation of behavior between objects is the essence of object-oriented design, so like any design, there isn't a hard and fast rule - rather a judging of trade-offs.
-```
+> Allocation of behavior between objects is the essence of object-oriented design, so like any design, there isn't a hard and fast rule - rather a judging of trade-offs.
+
 
 ## Ley de Démeter
 
 La Ley de Démeter[11][12] es un principio de diseño de software que tiene como objeto desacoplar las conexiones entre objetos, en busca de sistemas _"Adaptativos"_. Formalmente dice:
 
-```
-Ley de Démeter:
-
-Un método "M" de un objeto "O" solo debería invocar a;
-
-- Sí mismo.
-- Sus parámetros.
-- Cualquier objeto que instancie.
-- Sus componentes directos
-```
+> Ley de Démeter:
+>
+> Un método "M" de un objeto "O" solo debería invocar a;
+>
+> - Sí mismo.
+> - Sus parámetros.
+> - Cualquier objeto que instancie.
+> - Sus componentes directos
 
 La idea subyacente es evitar la invocación de métodos en cadena, que implican el conocimiento de los componentes internos de otras clases.
 
-```
-// Demeter Law
+```php
+<?php
 $this->getDoctrine()->getEntityManager()->flush();
+?>
 ```
 
 Si bien en los textos referenciados se sugiere la solución de añadir métodos en forma de envoltorio de las subclases, `$this->flushEntityManager()`, la Ley debe tomarse como un indicador de la existencia de problemas en el diseño, y de excesivo acoplamiento entre objetos.
@@ -168,6 +163,7 @@ Tal vez el que más impacto tiene entre todas las técnicas de refactoring. Esco
 En este refactoring identificamos un bloque dentro de un método que tiene entidad por sí mismo y lo extraemos a otro método.
 
 ```php
+<?php
 // Extract method v1
 
 class Bidder
@@ -183,18 +179,21 @@ class Bidder
             $message = sprintf('It is not possible to place bids with an amount higher than current');
             throw new InvalidBidException($message);
         }
-        if ($bid->getAuction()->getType() == AuctionTypes::ISSUE) {
+        if ($bid->needsBuyout()) {
             $bid->executeBuyOut();
             $this->stateMachine->execute(AuctionTransitions::ASSIGN, $bid->getAuction());
         }
         return $bid->execute();
     }
 }
+
+?>
 ```
 
 
 
 ```php
+<?php
 // Extract method v2
 
 class Bidder
@@ -203,7 +202,7 @@ class Bidder
     public function bid(BidInterface $bid)
     {
         $this->assertValidBid($bid);
-        if ($bid->getAuction()->getType() == AuctionTypes::ISSUE) {
+        if ($bid->needsBuyout())) {
             return $this->executeBuyOut($bid);
         }
         return $bid->execute();
@@ -226,6 +225,7 @@ class Bidder
         $this->stateMachine->execute(AuctionTransitions::ASSIGN, $bid->getAuction());
     }
 }
+?>
 ```
 
 Con extract method **aumentamos la legibilidad** del código, dado que asignamos nombres a cada bloque de código que denotan la intención. Es importante que, dentro de un método, todas las operaciones se ejecuten al mismo nivel de abstracción. Es decir, un mismo método no debería encargarse de realizar una operación matemática, utilizar un API externo y almacenar registros en base de datos. Estructurar los métodos según el nivel en el que operan ayuda a tener un código más coherente.
@@ -235,7 +235,8 @@ Con extract method **aumentamos la legibilidad** del código, dado que asignamos
 
 Con pull up method adaptamos unificamos métodos muy similares de varias subclases en una misma superclase, reusando el código.
 
-```
+```php
+<?php
 // Pull up method v1
 
 public class AgencyRepository {
@@ -264,10 +265,12 @@ public class CustomerRepository {
         return $customers;
     }
 }
+?>
 ```
 
 
-```
+```php
+<?php
 // Pull up method v2
 
 public class Repository() {
@@ -306,6 +309,7 @@ public class CustomerRepository extends Repository{
 
     // ...
 }
+?>
 ```
 
 ### Extract class
@@ -313,6 +317,7 @@ public class CustomerRepository extends Repository{
 Extract class normalmente sucede tras un extract method. Ayuda a simplificar una clase extrayendo responsabilidades a un colaborador.
 
 ```php
+<?
 // Extract class v1
 
 class CashMachine {
@@ -341,9 +346,11 @@ class CashMachine {
     }
 
 }
+?>
 ```
 
 ```php
+<?
 // Extract class v2
 
 class CashMachine {
@@ -361,6 +368,7 @@ class CashMachine {
         // do whatever
     }
 }
+?>
 ```
 
 
@@ -383,6 +391,7 @@ En el nivel superior de abstracción tenemos dos Mailers distintos, ambos compue
 Resulta fácil imaginar el esfuerzo que supone construir cada instancia e inyectarla en los constructores adecuados. Tomemos como ejemplo la instanciación de EmployeeMailer.
 
 ```php
+<?php
 // Building a subsystem of collaborators
 
 $template_finder = new TemplateFinder($path_to_templates);
@@ -393,6 +402,7 @@ $application_mailer = new ApplicationMailer($system_mailer, $email_builder);
 
 // And finally...
 $employee_mailer = new EmployeeMailer($application_mailer, $others, ...);
+?>
 ```
 El primer obstáculo al que se enfrentan los recién llegados a la programación a objetos es dónde situar el código de construcción de objetos.
 
@@ -401,8 +411,8 @@ El primer obstáculo al que se enfrentan los recién llegados a la programación
 
 Esta es la opción más costosa desde el punto de vista de la arquitectura del sistema, dado que se necesita configurar una herramienta concreta (el D.I.C) y exponerla al resto del sistema. Afortunadamente la mayoría de frameworks disponen de un D.I.C de serie.
 
-```yml
-#Dependency Injection Container
+```yaml
+// Dependency Injection Container
 parameters:
     path_to_templates: private/email-templates
     global_template_variables:
@@ -434,13 +444,15 @@ services:
 
 Para instanciar el `EmployeeMailer` bastaría con requerir dicho servicio desde una clase con acceso al D.I.C.
 
-```
+```php
+<?php
 $employee_mailer = $container->get('employee_mailer');
+?>
 ```
 
 Aunque los contenedores de inyección facilitan las tareas de construcción de objetos, su objetivo no es ese. Un D.I.C. permite cambiar fácilmente la implementación concreta a utilizar de una abstracción. Por ejemplo, si tuviésemos dos sistemas utilizando la misma base de código, y en uno de ellos necesitásemos SwiftMailer y en el otro PHPMailer, tendría sentido declarar un único servicio y configurar cada entorno para que el D.I.C. devolviese la instancia apropiada.
 
-```yml
+```yaml
 #more accurate usage of the DIC
 
 # Environment a)
@@ -472,6 +484,7 @@ Si registramos objetos como servicios de manera indiscriminada podemos incurrir 
 Una opción muy extendida es utilizar una clase adicional, llamada normalmente **Factory**, responsable de la construcción de objetos.
 
 ```php
+<?php
 // Factory pattern
 
 class MailerFactory {
@@ -490,6 +503,7 @@ class MailerFactory {
 }
 
 $mailer = MailerFactory::create('php');
+?>
 ```
 
 El patrón Factory tiene como beneficio la **concentración del conocimiento de construcción en una sola clase**. Cuando esta lógica no es muy compleja, el uso de factories está menos legitimado pues **añade indirección** y **añade complejidad**.
@@ -501,6 +515,7 @@ El patrón Factory tiene como beneficio la **concentración del conocimiento de 
 El uso de Factory Method está menos extendido que el de Factory Class, aunque en muchos casos presenta considerables ventajas. Una de las variantes consiste en situar el conocimiento de construcción en una **superclase** y ofrecer métodos distintos para cada **subclase**.
 
 ```php
+<?php
 // Factory method: superclass
 
 class AbstractMailerAdapter {
@@ -515,12 +530,14 @@ class AbstractMailerAdapter {
 
 
 $mailer = AbstractMailerAdapter::createPHP();
+?>
 ```
 
 Una de las aplicaciones más útiles de **Factory Method** es ofrecer un **constructor por defecto**. En la mayoría de los casos necesitamos inyección de dependencias (por testabilidad y diseño) pero sólo tenemos una implementación para cada una de las abstracciones. En este caso, el constructor por defecto es, en mi opinión, la estrategia más apropiada.
 
 
 ```php
+<?php
 // Factory method: default
 
 public function ApplicationMailer {
@@ -538,6 +555,7 @@ public function ApplicationMailer {
 
 
 $mailer = ApplicationMailer::createDefault();
+?>
 ```
 
 Uno de los puntos fuertes de este patrón es que se obtiene un **diseño muy sencillo**, dado que el conocimiento de construcción está en la propia clase. Además puede resultar muy potente al **encadenar métodos de construcción**. No resulta apropiado en sistemas muy complejos donde la flexibilidad es importante.
@@ -551,6 +569,7 @@ Este es un patrón que combina el refactoring pull-up method con polimorfismo. S
 
 
 ```php
+<?php
 // Form Template Method v1
 
 class CustomerRepository {
@@ -576,10 +595,11 @@ class EmployeeRepository {
         return $query_builder->execute();
     }
 }
-
+?>
 ```
 
 ```php
+<?php
 // Form Template Method v2
 
 abstract class Repository {
@@ -612,7 +632,7 @@ class EmployeeRepository extends Repository {
             ->from('employees', 'e');
     }
 }
-
+?>
 ```
 
 
@@ -620,14 +640,15 @@ class EmployeeRepository extends Repository {
 
 Utilizamos una clase adaptadora para permitir la sustitución de componentes sin afectar al resto del código.
 
-![Adapter](/images/orientacion_objetos_02_2014/adapter.jpg)
+![Adapter](/images/orientacion_objetos_02_2014/adapters.jpg)
 
 
 ### Interpreter
 
 El patrón Interpreter sirve para evaluar sentencias en un lenguaje implícito. Por ejemplo, una clase que permitiese evaluar una expresión como la siguiente:
 
-```
+```php
+<?php
 // Interpreter
 $sentence = "Roses are red, the sky is blue, and all your base are belong to us.";
 $interpreter->execute($sentence);
@@ -637,6 +658,7 @@ array(
     'sky'           => 'blue',
     'all your base' => 'belongs to us'
 );
+?>
 ```
 
 Para más ejemplos sobre evaluación de expresiones con interpreter, consultar tests de [QueryBuilder](https://github.com/carlescliment/query-builder/blob/master/tests/carlescliment/QueryBuilder/QueryBuilderTest.php#L155).
@@ -648,7 +670,8 @@ Para más ejemplos sobre evaluación de expresiones con interpreter, consultar t
 El patrón command permite eliminar condicionales a través de un ejecutor y varios colaboradores (comandos).
 
 
-```
+```php
+<?php
 // Command v1
 
 class PasswordValidator {
@@ -656,7 +679,7 @@ class PasswordValidator {
     const MIN_LENGTH = 8;
 
     public function validate($password) {
-        if (strlen($password) < 8) {
+        if (strlen($password) < self::MIN_LENGTH) {
             return new InvalidValidation(sprintf('Password must contain at least %d chars', self::MIN_LENGTH));
         }
         if (!preg_match('/[A-Z]+/', $password)) {
@@ -669,9 +692,11 @@ class PasswordValidator {
         return new ValidValidation();
     }
 }
+?>
 ```
 
-```
+```php
+<?php
 // Command v2
 
 class PasswordValidator {
@@ -699,6 +724,7 @@ $validator->addRule(new PasswordRules\ContainsUppercase());
 $validator->addRule(new PasswordRules\ContainsNumeric());
 //
 $validator->validate('my password');
+?>
 ```
 
 ## Protección
@@ -708,14 +734,17 @@ $validator->validate('my password');
 Null Object permite manejar las respuestas de una forma uniforme, sin condicionales:
 
 ```php
+<?
 // null object v1
 $logger = $this->getLogger();
 if ($logger) {
     $logger->log('All your bases are belong to us');
 }
+?>
 ```
 
 ```php
+<?
 // null object v2
 
 class NullLogger {
@@ -728,6 +757,7 @@ class NullLogger {
 
 $logger = $this->getLogger();
 $logger->log('All your bases are belong to us');
+?>
 ```
 
 
@@ -739,6 +769,7 @@ Null Object es un patrón estupendo para cancelar procesos indeseados en entorno
 ### Collecting Parameter
 
 ```php
+<?php
 // collecting parameter v1
 
 class ScoreUpdater {
@@ -753,9 +784,11 @@ class ScoreUpdater {
         return $this;
     }
 }
+?>
 ```
 
 ```php
+<?php
 // collecting parameter v2
 
 class ScoreUpdater {
@@ -774,6 +807,7 @@ class ScoreUpdater {
         $player->addScore($score);
     }
 }
+?>
 ```
 
 
