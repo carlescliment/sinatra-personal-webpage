@@ -149,7 +149,219 @@ Introducidos los conceptos teóricos necesarios, es hora de mostrar algunos ejem
 
 
 
-# Parte II: Aplicaciones
+# Parte II: Aplicaciones. Refactoring y patrones.
+
+
+## Refactoring básico
+
+### Renaming
+
+Tal vez el que más impacto tiene entre todas las técnicas de refactoring. Escoger bien los nombres de clases, métodos y variables puede parecer trivial pero no lo es tanto si queremos ser verdaderamente concisos y evitar ambigüedades. Los nombres deben cambiar también si la evolución del código los desvirtúa.
+
+### Extract method
+
+En este refactoring identificamos un bloque dentro de un método que tiene entidad por sí mismo y lo extraemos a otro método.
+
+```php
+// Extract method v1
+
+class Bidder
+{
+
+    public function bid(BidInterface $bid)
+    {
+        if (!$bid->isPlaceable()) {
+            $message = sprintf('The auction is closed to bids.');
+            throw new InvalidBidException($message);
+        }
+        if (!$bid->isLowerThanAuction()) {
+            $message = sprintf('It is not possible to place bids with an amount higher than current');
+            throw new InvalidBidException($message);
+        }
+        if ($bid->getAuction()->getType() == AuctionTypes::ISSUE) {
+            $bid->executeBuyOut();
+            $this->stateMachine->execute(AuctionTransitions::ASSIGN, $bid->getAuction());
+        }
+        return $bid->execute();
+    }
+}
+```
+
+
+
+```php
+// Extract method v2
+
+class Bidder
+{
+
+    public function bid(BidInterface $bid)
+    {
+        $this->assertValidBid($bid);
+        if ($bid->getAuction()->getType() == AuctionTypes::ISSUE) {
+            return $this->executeBuyOut($bid);
+        }
+        return $bid->execute();
+    }
+
+    private function assertValidBid(BidInterface $bid)
+    {
+        if (!$bid->isPlaceable()) {
+            $message = sprintf('The auction is closed to bids.');
+            throw new InvalidBidException($message);
+        }
+        if (!$bid->isLowerThanAuction()) {
+            $message = sprintf('It is not possible to place bids with an amount higher than current');
+            throw new InvalidBidException($message);
+        }
+    }
+
+    private function executeBuyOut(BidInterface $bid) {
+        $bid->executeBuyOut();
+        $this->stateMachine->execute(AuctionTransitions::ASSIGN, $bid->getAuction());
+    }
+}
+```
+
+Con extract method **aumentamos la legibilidad** del código, dado que asignamos nombres a cada bloque de código que denotan la intención. Es importante que, dentro de un método, todas las operaciones se ejecuten al mismo nivel de abstracción. Es decir, un mismo método no debería encargarse de realizar una operación matemática, utilizar un API externo y almacenar registros en base de datos. Estructurar los métodos según el nivel en el que operan ayuda a tener un código más coherente.
+
+
+### Pull up method
+
+Con pull up method adaptamos unificamos métodos muy similares de varias subclases en una misma superclase, reusando el código.
+
+```
+// Pull up method v1
+
+public class AgencyRepository {
+
+    // ...
+
+    private function resultsToAgencies(array $results) {
+        $agencies = array();
+        foreach ( $results as $result ) {
+            $agencies[] = Agency::fromArray($result);
+        }
+        return $agencies;
+    }
+}
+
+
+public class CustomerRepository {
+
+    // ...
+
+    private function resultsToCustomers(array $results) {
+        $customers = array();
+        foreach ( $results as $result ) {
+            $customers[] = Customer::fromArray($result);
+        }
+        return $customers;
+    }
+}
+```
+
+
+```
+// Pull up method v2
+
+public class Repository() {
+
+    private $modelName;
+
+    public function __construct($model_name) {
+        $this->modelName = $model_name;
+    }
+
+    private function resultsToInstances(array $results) {
+        $instances = array();
+        foreach ( $results as $result ) {
+            $instances[] = $this->modelName::fromArray($result);
+        }
+        return $instances;
+    }
+}
+
+
+public class AgencyRepository extends Repository {
+
+    public function __construct() {
+        parent::__construct('Agency');
+    }
+
+    // ...
+}
+
+
+public class CustomerRepository extends Repository{
+
+    public function __construct() {
+        parent::__construct('Customer');
+    }
+
+    // ...
+}
+```
+
+### Extract class
+
+Extract class normalmente sucede tras un extract method. Ayuda a simplificar una clase extrayendo responsabilidades a un colaborador.
+
+```php
+// Extract class v1
+
+class CashMachine {
+
+    private $ip;
+
+    public function __construct($ip) {
+        $this->ip = $ip;
+    }
+
+    public function withdraw() {
+        $connection = $this->connect();
+        // do whatever
+    }
+
+    private function connect() {
+        // .
+        // .
+        // .
+        // .
+        // .
+        // .
+        // .
+        // Something very loooong and complicated here
+        return $connection;
+    }
+
+}
+```
+
+```php
+// Extract class v2
+
+class CashMachine {
+
+    private $ip;
+    private $connection;
+
+    public function __construct($ip, Connection $connection) {
+        $this->ip = $ip;
+        $this->connection = $connection;
+    }
+
+    public function withdraw() {
+        $connection->connect($this->ip);
+        // do whatever
+    }
+}
+```
+
+
+
+
+
 
 ## Constructores
 
@@ -324,8 +536,3 @@ $mailer = ApplicationMailer::createDefault();
 ```
 
 Uno de los puntos fuertes de este patrón es que se obtiene un **diseño muy sencillo**, dado que el conocimiento de construcción está en la propia clase. Además puede resultar muy potente al **encadenar métodos de construcción**. No resulta apropiado en sistemas muy complejos donde la flexibilidad es importante.
-
-
-## Refactoring básico
-
-Mover encima de constructores.
