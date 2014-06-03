@@ -13,7 +13,7 @@ Empieza a llegar el calor y me va costando dormir, y en los duermevelas me viene
 
 Hace unos años cayó en el equipo del que formaba parte el encargo de desarrollar un portal de noticias. Los requisitos eran bastante sencillos, el periódico virtual iba a tener dos columnas y las noticias tenían que ser ordenables. Aparte de eso, no mucho más, posibilidad de hacer noticias sticky que conservasen la posición aunque otras se eliminasen, imágenes embebidas, y algún etcétera.
 
-Nos pusimos manos a la obra tres desarrolladores senior. Ninguno de nosotros era muy senior realmente, pero el hecho de habernos incorporado al mercado de trabajo antes que los otros compañeros nos daba cierta posición de privilegio. Digamos que la senioridad era una cuestión relativa.
+Nos pusimos manos a la obra tres desarrolladores senior. Ninguno de nosotros era muy senior realmente, pero el hecho de habernos incorporado al mercado de trabajo antes que los otros compañeros nos daba cierta posición de privilegio. Digamos que la senioridad era una cuestión comparativa.
 
 Para añadir un poco de salsa en aquél entonces había cierta tirantez entre los miembros del equipo. Podríamos decir que el equipo de desarrollo se dividía en tres facciones: los que prudentemente no opinaban, los que opinaban una cosa, y... y bueno, la tercera facción solía ser yo. Esta ocasión no iba a ser diferente y para evitar problemas severos y debates estériles decidimos separar el desarrollo en dos. Mientras mis compañeros desarrollaban el portal yo me encargaría del backend. Eso nos daría aire y espacio a todos para trabajar a nuestras anchas. ¿Sí?
 
