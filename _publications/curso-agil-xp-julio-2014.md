@@ -207,11 +207,11 @@ Kanban (en japonés, _panel_), es una metodología mucho más libre de reglas qu
 
 
 ### Bibliografía:
-[User Stories Applied](http://www.amazon.com/User-Stories-Applied-Software-Development/dp/0321205685/)
-[Extreme Programming Explained](http://www.amazon.com/Extreme-Programming-Explained-Embrace-Change/dp/0201616416)
-[Agile Estimating and Planning](http://www.amazon.com/Agile-Estimating-Planning-Mike-Cohn/dp/0131479415)
-[SCRUM From The Trenches](http://www.amazon.com/Scrum-Trenches-Enterprise-Software-Development/dp/1430322640)
-[Lean Software Development](http://www.amazon.com/Lean-Software-Development-Agile-Toolkit/dp/0321150783)
-[Artículo sobre SCRUM en la Wikipedia](http://en.wikipedia.org/wiki/Scrum_(software_development))
-[Artículo sobre Kanban en la Wikipedia](http://en.wikipedia.org/wiki/Kanban_(development))
-[Extreme Programming: Do these 12 practices make perfect?](http://www.techrepublic.com/article/extreme-programming-do-these-12-practices-make-perfect/)
+- [User Stories Applied](http://www.amazon.com/User-Stories-Applied-Software-Development/dp/0321205685/)
+- [Extreme Programming Explained](http://www.amazon.com/Extreme-Programming-Explained-Embrace-Change/dp/0201616416)
+- [Agile Estimating and Planning](http://www.amazon.com/Agile-Estimating-Planning-Mike-Cohn/dp/0131479415)
+- [SCRUM From The Trenches](http://www.amazon.com/Scrum-Trenches-Enterprise-Software-Development/dp/1430322640)
+- [Lean Software Development](http://www.amazon.com/Lean-Software-Development-Agile-Toolkit/dp/0321150783)
+- [Artículo sobre SCRUM en la Wikipedia](http://en.wikipedia.org/wiki/Scrum_(software_development))
+- [Artículo sobre Kanban en la Wikipedia](http://en.wikipedia.org/wiki/Kanban_(development))
+- [Extreme Programming: Do these 12 practices make perfect?](http://www.techrepublic.com/article/extreme-programming-do-these-12-practices-make-perfect/)
