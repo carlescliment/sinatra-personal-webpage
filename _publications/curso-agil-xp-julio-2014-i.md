@@ -1,20 +1,18 @@
 ---
-title: Curso Metodologías Ágiles y TDD
+title: Curso Metodologías Ágiles y TDD, parte I
 date: 2014-07-07
 author: Carles Climent Granell
 license: All rights reserved to Carles Climent Granell. This material cannot be reproduced or used without express authorization of the author, as a whole or fragmented.
 ---
 
 
-# Curso de Metodologías Ágiles y TDD
+# Curso de Metodologías Ágiles y TDD, Parte I.
 
-## PARTE I: Metodologías Ágiles
+## Historias de Usuario
 
-### Historias de Usuario
+### Introducción
 
-#### Introducción
-
-##### Qué es una historia de usuario
+#### Qué es una historia de usuario
 
 Una historia de usuario es la descripción de una funcionalidad que aporta valor a un usuario del sistema. Se compone de tres aspectos:
 
@@ -30,7 +28,7 @@ Una historia de usuario suele representarse en un trozo de papel o tarjeta y sim
 
 Teniendo en cuenta la naturaleza cambiante del software y de las necesidades de negocio al que éste responde, las historias de usuario suponen un gran ahorro respecto a la tradicional documentación exhaustiva del desarrollo en cascada. En lugar de mantener innumerables versiones sobre la documentación, ésta se escribe a medida que el software evoluciona mediante los tests de aceptación. **Los tests son la única documentación viva y veraz de las necesidades que la funcionalidad cubre.**
 
-##### Historias épicas e historias microscópicas
+#### Historias épicas e historias microscópicas
 
 Las historias demasiado grandes reciben el nombre _épicas_. Las historias épicas suelen ser más difíciles de estimar y planificar, y se componen de varias sub-funcionalidades. Una historia épica puede descomponerse en otras más pequeñas:
 
@@ -60,7 +58,7 @@ Las historias microscópicas son aquellas que abordan con demasiado detalle una 
 ```
 
 
-##### Quién escribe las historias
+#### Quién escribe las historias
 
 Las historias de usuario se escriben en un lenguaje no-técnico, cercano al dominio del negocio al que pertenecen. Esto facilita que sea el propio cliente (Product Owner) el que escriba las historias. Sin embargo, hay algunos inconvenientes que dificultan que el _Product Owner_ se encargue él mismo de realizar esta tarea.
 
@@ -74,7 +72,7 @@ En cualquier caso, es importante que el _Product Owner_ valide las historias y s
 
 
 
-#### Cómo escribir historias
+### Cómo escribir historias
 
 Las historias de usuario deben ser:
 
@@ -107,7 +105,7 @@ Por lo tanto tal vez sea mejor reformular las anteriores historias:
 * **Testables**. Las historias deben especificar tests de aceptación que demuestren que la historia está realizada. Estos tests deben ser además automatizables para garantizar que el valor aportado se mantiene durante la evolución del software.
 
 
-#### Roles
+### Roles
 
 En algunos proyectos se tiende a simplificar los roles del sistema generalizándolos bajo el término `Usuario`. Una mejor definición de los distintos roles que utilizarán el sistema permitirá detectar las necesidades a cubrir desde una óptica más cercana a los receptores del valor.
 
@@ -116,7 +114,7 @@ Para identificar roles es importante la participación del _Product Owner_ y de 
 Una vez terminado el brainstorming, las tarjetas se colocan por proximidad según se solapen unos roles con otros. Una vez colocados, algunos roles se pueden unir, otros se pueden refinar, etcétera. También se descartan aquellos roles que no son importantes en el proyecto.
 
 
-#### Estimar y planificar historias
+### Estimar y planificar historias
 
 Una vez escritas las historias de usuario, el equipo se reúne con el fin de estimarlas. La técnica más reconocida se conoce como **estimación con Story Points**. Un _Story Point_ es una unidad de medida que no tiene un valor concreto en sí mismo. Simboliza el _esfuerzo_ estimado para terminar una tarea _en relación con las demás_.
 
@@ -131,13 +129,13 @@ Una vez estimadas las historias, el _Product Owner_ es el responsable de prioriz
 Cuando un equipo se inicia en metodologías como SCRUM no conoce su velocidad. Una técnica para empezar es estimar _a ojo_ las primeras tres iteraciones, y a partir de ahí extraer una media.
 
 
-#### Definición de hecho
+### Definición de hecho
 
 Una historia se considera terminada cuando las pruebas de aceptación están automatizadas y pasan _en verde_. **Sin tests, la historia no puede considerarse terminada**.
 
 
 
-#### Cómo medir la evolución del proyecto
+### Cómo medir la evolución del proyecto
 
 El **burndown chart** permite medir de una manera muy gráfica la evolución del proyecto. Consiste en un gráfico cuyo eje vertical son los SPs totales del proyecto, y cuyo eje horizontal es el número de iteraciones previstas. En un color se dibuja la linea que representa el **progreso estimado**, que unirá el punto más alto del eje Y con el más alejado del eje X.
 
@@ -146,18 +144,18 @@ A medida que terminen las iteraciones se irá dibujando la línea que representa
 ![Burndown chart](burndown.png)
 
 
-### SCRUM
+## SCRUM
 
 SCRUM es un **Framework de desarrollo ágil, iterativo e incremental** para la gestión de proyectos.
 
-#### Roles
+### Roles
 
 * El **Product Owner** representa a los **stakeholders** y es la voz del cliente, encargado de escribir y priorizar las **historias de usuario**.
 * El **Equipo de Desarrollo** es el encargado de transformar las historias en funcionalidades.
 * El **Scrum Master** es un facilitador cuya tarea es eliminar cualquier impedimento que pueda afectar al equipo.
 
 
-#### Eventos
+### Eventos
 
 * El **Sprint** es la unidad básica de desarrollo de Scrum. Tiene una duración específica y fija a lo largo del tiempo, siendo dos semanas la más típica, y se compone de un conjunto de historias de usuario que el equipo de desarrollo se compromete a entregar.
 * La **reunión de planificación** se realiza al principio de cada Sprint. Es una reunión **limitada en el tiempo** (timeboxed), en la cual se prioriza el trabajo a realizar y se construye el _Sprint Backlog_.
@@ -169,14 +167,14 @@ SCRUM es un **Framework de desarrollo ágil, iterativo e incremental** para la g
 * La **Retrospectiva** es la última reunión del Sprint, donde se persigue la mejora continua a través de dos preguntas: ¿Qué ha ido bien en este sprint? ¿Qué podemos mejorar?
 
 
-#### Artefactos
+### Artefactos
 
 * El **Product Backlog** es una lista de todo aquello que es necesario realizar para entregar un producto.
 * El **Sprint backlog** es el trabajo que deben realizar los desarrolladores en el sprint actual.
 * El **Burndown chart** es un gráfico que visibiliza la evolución real del proyecto respecto a la evolución estimada.
 
 
-### Kanban
+## Kanban
 
 Kanban (en japonés, _panel_), es una metodología mucho más libre de reglas que Scrum. Se basa en seis prácticas:
 
@@ -187,7 +185,7 @@ Kanban (en japonés, _panel_), es una metodología mucho más libre de reglas qu
 * **Impulsa el feedback** a través de retrospectivas y otras prácticas.
 * **Mejora continua**.
 
-### Las 12 prácticas de Extreme Programming
+## Las 12 prácticas de Extreme Programming
 
 * Las **User Stories** son el corazón de la planificación ágil.
 * **Iteraciones cortas** que permitan un feedback rápido y correcciones a tiempo.
