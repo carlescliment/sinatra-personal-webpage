@@ -70,7 +70,7 @@ Las historias de usuario se escriben en un lenguaje no-técnico, cercano al domi
 
 Por ello es frecuente utilizar _proxies_ del _Product Owner_. Los proxies son miembros del equipo de desarrollo o de otras áreas de la empresa que, por su mejor conocimiento del dominio de negocio, _representan_ al Product Owner participando en la redacción de las historias. Un _proxy_ puede ser una única persona o un equipo formado por diseñadores, testers, desarrolladores, etc...
 
-En cualquier caso, es importante que el _Product Owner_ sea valide las historias y sus prioridades.
+En cualquier caso, es importante que el _Product Owner_ valide las historias y sus prioridades.
 
 
 
