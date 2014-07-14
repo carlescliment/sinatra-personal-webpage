@@ -1,5 +1,6 @@
 source "http://rubygems.org"
 gem "sinatra"
+gem "rake"
 gem "sinatra-flash", "~> 0.3.0"
 gem "sinatra-config-file"
 gem "thin"
