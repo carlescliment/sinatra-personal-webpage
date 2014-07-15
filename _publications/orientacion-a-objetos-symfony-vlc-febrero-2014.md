@@ -112,7 +112,16 @@ $this->getDoctrine()->getEntityManager()->flush();
 Si bien en los textos referenciados se sugiere la solución de añadir métodos en forma de envoltorio de las subclases, `$this->flushEntityManager()`, la Ley debe tomarse como un indicador de la existencia de problemas en el diseño, y de excesivo acoplamiento entre objetos.
 
 ## Composición versus herencia
-Pdte.
+
+A pesar de que es común utilizar tanto herencia como composición para reusar código, el uso (y abuso) de la herencia trae consigo algunos problemas [17].
+
+En primer lugar, mediante la herencia, todos los métodos públicos de la clase padre se ven expuestos, cuando posiblemente sólo es necesario exponer un segmento.
+
+La herencia es una dependencia _dura_, en el sentido de que no es posible modificarla en tiempo de ejecución. Una clase A que extienda la clase B siempre dependerá de esta última. No es así en los casos de composición, puesto que A puede depender de una interfaz con los métodos de B.
+
+Por otra parte, el uso de herencia genera jerarquías muy difíciles de romper y con efectos impredecibles. Ante un sistema muy jerarquizado, un cambio en las clases superiores puede suponer un aténtico calvario en las clases inferiores, acopladas con la implementación. _Programa con interfaces, no implementaciones_.
+
+Por lo tanto, la herencia debe utilizarse de manera excepcional, en casos como el polimorfismo, o en aquellas refactorizaciones de reuso de código en las que supongan una ganancia clara.
 
 
 
