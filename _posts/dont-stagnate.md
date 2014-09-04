@@ -13,5 +13,5 @@ We just can't afford stagnation. Going further, those who stagnate are in fact g
 
 I've seen something similar to developers' stagnation in some web applications. Like devs, applications can stagnate. And after this happens, they start to show signs of decay. Not in vain, the apps we develop reflect many aspects of ourselves.
 
-So look at the apps you've been crafting lately. Are they stagnated or moving, day by day, towards a better design? If the apps you are currently involved in seem stuck and dusty, may be you should better look at yourself. You're still in time.
+So look at the apps you've been crafting lately. Are they stagnated or moving, day by day, towards a better design? If the apps you are currently involved in seem stuck and rusty, may be you should better look at yourself. You're still in time.
 
