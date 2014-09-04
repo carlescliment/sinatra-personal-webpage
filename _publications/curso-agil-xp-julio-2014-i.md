@@ -141,7 +141,7 @@ El **burndown chart** permite medir de una manera muy gráfica la evolución del
 
 A medida que terminen las iteraciones se irá dibujando la línea que representa el **progreso real**.
 
-![Burndown chart](burndown.png)
+![Burndown chart](/images/curso-agil-xp-julio-2014/burndown.png)
 
 
 ## SCRUM

@@ -1,6 +1,6 @@
 ---
 title: Curso Metodologías Ágiles y TDD, parte II
-date: 2014-07-14
+date: 2014-07-08
 author: Carles Climent Granell
 license: All rights reserved to Carles Climent Granell. This material cannot be reproduced or used without express authorization of the author, as a whole or fragmented.
 ---
@@ -14,7 +14,7 @@ license: All rights reserved to Carles Climent Granell. This material cannot be 
 
 Cuando un programador empieza su andadura en el desarrollo del software, no suele pasar mucho tiempo hasta que escucha por primera vez la expresión _"en mi ordenador funciona_. Tanto es así que la frase se ha convertido en objeto de chistes, memes e incluso camisetas.
 
-![Works on my machine meme](works-on-my-machine-meme.jpg)
+![Works on my machine meme](/images/curso-agil-xp-julio-2014/works-on-my-machine-meme.jpg)
 
 El problema surge de la disparidad en los distintos entornos del staging, desde los equipos de desarrollo locales hasta el servidor de producción, sin olvidar los servidores de integración y testing. Antes de la irrupción de la [cultura DevOps](http://en.wikipedia.org/wiki/DevOps) se solía considerar la parte de operaciones como un área independiente de desarrollo. Los **DevOps** persiguen crean puentes entre Desarrollo y Operaciones para dar respuestas a las interdependencias y resolver los problemas de integración.
 

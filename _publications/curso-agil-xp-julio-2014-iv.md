@@ -1,6 +1,6 @@
 ---
-title: Curso Metodologías Ágiles y TDD, parte III
-date: 2014-07-14
+title: Curso Metodologías Ágiles y TDD, parte IV
+date: 2014-07-10
 author: Carles Climent Granell
 license: All rights reserved to Carles Climent Granell. This material cannot be reproduced or used without express authorization of the author, as a whole or fragmented.
 ---
