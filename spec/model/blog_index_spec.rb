@@ -15,16 +15,29 @@ describe 'BlogIndex' do
 
 
   it "creates posts from index entries" do
-    existing_post = stub_existing_post
+    posts = [{:title => 'title', :date => '2013-10-17', :href => '/blog/blah'}]
+    stub_existing_posts(posts)
 
-    Post.should_receive(:new).with(existing_post[:title], nil, existing_post[:date], existing_post[:href]);
+    Post.should_receive(:new).with(posts[0][:title], nil, posts[0][:date], posts[0][:href]);
 
     @index.load('index.yml')
   end
 
 
+  it "brings the number of pages" do
+    posts = 30.times.collect {
+      {:title => 'title', :date => '2013-10-17', :href => '/blog/blah'}
+    }
+    stub_existing_posts(posts)
+
+    @index.load('index.yml')
+
+    expect(@index.pages()).to eql(3)
+  end
+
   it "decorates posts" do
-    stub_existing_post
+    posts = [{:title => 'title', :date => '2013-10-17', :href => '/blog/blah'}]
+    stub_existing_posts(posts)
 
     PostDecorator.should_receive(:new) do |post|
       expect(post.class).to eql Post
@@ -37,10 +50,7 @@ describe 'BlogIndex' do
 
   private
 
-  def stub_existing_post
-    existing_post = { :title => 'title', :date => '2013-10-17', :href => '/blog/blah' }
-    file_contents = [existing_post]
-    YAML.stub(:load_file).and_return(file_contents)
-    return existing_post
+  def stub_existing_posts(posts)
+    YAML.stub(:load_file).and_return(posts)
   end
 end
