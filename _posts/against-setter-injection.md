@@ -9,6 +9,8 @@ date: 2014-10-25
 
 > **Disclaimer III:** I mention TDD many times in the post. Roy makes it clear that his book is not about TDD. Anyway, the test-first approach is, for me, the best way to achieve testable code and good design. As I've said many times to friends, TDD has had the deepest impact in my professional life, and that's why all I wrote is heavily influenced by its perspective.
 
+> **Disclaimer IV:** Just after the release of the post, Roy told me about a second edition in which he has changed lots of things. I'm looking forward to read both editions to see his evolution.
+
 
 One of the first chapters of _"The Art of Unit Testing"_ describes what a stub is and introduces the concept of dependency injection. The author presents three ways of injecting dependencies:
 
