@@ -10,7 +10,7 @@ date: 2014-10-25
 > **Disclaimer III:** I mention TDD many times in the post. Roy makes it clear that his book is not about TDD. Anyway, the test-first approach is, for me, the best way to achieve testable code and good design. As I've said many times to friends, TDD has had the deepest impact in my professional life, and that's why all I wrote is heavily influenced by its perspective.
 
 
-One of the first chapters in the beginnings of _"The Art of Unit Testing"_ describes what a stub is and introduces the concept of dependency injection. The author presents three ways of injecting dependencies:
+One of the first chapters of _"The Art of Unit Testing"_ describes what a stub is and introduces the concept of dependency injection. The author presents three ways of injecting dependencies:
 
 * Via constructor.
 * As an argument of the method that needs the collaborator.
@@ -36,7 +36,7 @@ Although the book is full of good advices, I cannot agree with this particular o
 
 2. IoC containers are not meant to be used as factories. Quoting the author of the book, _"there is no problem in OOP that cannot be solved with an additional layer of indirection, except too many indirection"_. Any IoC container adds LOADS of indirection, as I described in a previous post [Usos y abusos del DIC](/blog/usos-y-abusos-del-dic) (In spanish, sorry) so they should be used wisely, mostly when we need to inject different implementations depending on the environment conditions. Furthermore, using the IoC as a mighty factory makes your business logic framework-dependent, thus adding testability and portability problems.
 
-3. When it becomes a pain to change a constructor because there are lots of clients instantiating it, it is an evidence of the spreading of construction logic. Once we get to that point, it is clear that we missed some refactorings in our TDD process. As soon as the number of clients instantiating a class go off your hands, centralize the construction logic by using factories or builders.
+3. When it becomes a pain to change a constructor because there are lots of clients instantiating it, it is an evidence of the spreading of construction logic. Once we get to that point, it is clear that we missed some refactorings in our TDD process. As soon as the number of clients instantiating a class goes off your hands, centralize the construction logic by using factories or builders.
 
 4. _"Simpler to achieve"_ doesn't always mean _"simpler to mantain"_. There are lots of test and mock frameworks that put many efforts in making things easier to achieve. Sometimes, these frameworks are hidding design problems by hidding the smells. Feeling the pain while testing is the essence of TDD, since it is the way you receive the feedback, the light that guides your refactorings.
 
