@@ -9,7 +9,7 @@ date: 2014-10-25
 
 > **Disclaimer III:** I mention TDD many times in the post. Roy makes it clear that his book is not about TDD. Anyway, the test-first approach is, for me, the best way to achieve testable code and good design. As I've said many times to friends, TDD has had the deepest impact in my professional life, and that's why all I wrote is heavily influenced by its perspective.
 
-> **Disclaimer IV:** Just after the release of the post, Roy told me about a second edition in which he has changed lots of things. I'm looking forward to read both editions to see his evolution.
+> **Disclaimer IV:** Just after the release of the post, Roy [told me](https://twitter.com/RoyOsherove/status/526046883249418240) about a [second edition (dec 2013)](http://www.amazon.es/Art-Unit-Testing-examples/dp/1617290890/ref=sr_1_1?s=foreign-books&ie=UTF8&qid=1414254466&sr=1-1&keywords=the+art+of+unit+testing) in which he changed lots of things. I'm looking forward to read both editions to see his evolution. Hope you find the thoughts in the post useful anyway.
 
 
 One of the first chapters of _"The Art of Unit Testing"_ describes what a stub is and introduces the concept of dependency injection. The author presents three ways of injecting dependencies:
@@ -63,7 +63,7 @@ class Mailer:
       self.logger.log('An email has been sent')
 ```
 
-By doing so we are breaking the Single Responsibility Principle and introducing flaws expressed by conditional logic. There are other ways to provide more features to a class, such as decorator, observer or mediator, among others. Optional collaborators tend to grow and can damage the design of the apps seriously if they're used profusely.
+By doing so we are breaking the Single Responsibility Principle, the Open-Close principle and introducing flaws expressed by conditional logic. There are other ways to provide more features to a class, such as decorator, observer or mediator, among others. Optional collaborators tend to grow and can damage the design of the apps seriously if they're used profusely.
 
 Summarizing, listening to the tests is fundamental in TDD. A problem in a test is, almost ever, a problem in the design. By implementing quick-fixes such as setter injection to make things easier to achieve, we are not only leaving the problems unresolved, but also creating new design flaws.
 
