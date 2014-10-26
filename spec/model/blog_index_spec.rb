@@ -24,8 +24,20 @@ describe 'BlogIndex' do
   end
 
 
-  it "brings the number of pages" do
+  it "brings the correct number of pages when all the pages are full" do
     posts = 30.times.collect {
+      {:title => 'title', :date => '2013-10-17', :href => '/blog/blah'}
+    }
+    stub_existing_posts(posts)
+
+    @index.load('index.yml')
+
+    expect(@index.pages()).to eql(3)
+  end
+
+
+  it "brings the correct number of pages when the last page is not full" do
+    posts = 29.times.collect {
       {:title => 'title', :date => '2013-10-17', :href => '/blog/blah'}
     }
     stub_existing_posts(posts)

@@ -20,6 +20,7 @@ class BlogIndex
   def page_posts
     newest = @max_per_page * @current_page
     oldest = newest + @max_per_page
+
     @posts[newest...oldest] or []
   end
 
@@ -32,7 +33,7 @@ class BlogIndex
   end
 
   def next_page
-    @current_page+1
+    @current_page + 1
   end
 
   def current_page
@@ -43,6 +44,7 @@ class BlogIndex
     if @current_page == 0
       return 0
     end
+
     @current_page-1
   end
 
@@ -50,6 +52,7 @@ class BlogIndex
     if @posts == 0
       return 1
     end
-    @posts.count / @max_per_page
+
+    (@posts.count.to_f / @max_per_page).ceil
   end
 end
