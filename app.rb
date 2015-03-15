@@ -40,8 +40,9 @@ class PersonalWebPage < Sinatra::Base
     haml :blog_index, :locals => { :index => index }
   end
 
-  get '/blog/:title' do |title|
-    post = load_post_or_404(title, settings.blog)
+  get '/blog/:uri' do |uri|
+    index = load_index(settings.blog)
+    post = load_post_or_404(index.find_by_uri("/blog/#{uri}").source, settings.blog)
     haml :post, :locals => { :post => post }
   end
 
@@ -49,7 +50,6 @@ class PersonalWebPage < Sinatra::Base
     index = load_index(settings.publications)
     haml :publications_index, :locals => { :index => index }
   end
-
 
   get '/publications/:title' do |title|
     post = load_post_or_404(title, settings.publications)
@@ -67,7 +67,6 @@ class PersonalWebPage < Sinatra::Base
     end
   end
 
-
   def load_index(config)
     index_file = settings.root + '/' + config['source_dir'] + '/index.yml'
     index = BlogIndex.new(config['max_per_page'], current_page)
@@ -82,4 +81,3 @@ class PersonalWebPage < Sinatra::Base
   not_found { haml :'404' }
   error { haml :'500' }
 end
-

@@ -12,13 +12,13 @@ class MarkdownPostProvider
 
   private
 
-  def self.read_contents(url_title, path)
-    full_path = path + '/' + url_title + '.md'
+  def self.read_contents(uri, path)
+    full_path = path + '/' + uri
     File.open(full_path, 'r').read
   end
 
   def self.markdown_to_post(markdown)
-    Post.new(markdown.metadata['title'], markdown.output, markdown.metadata['date'])
+    Post.new(markdown.metadata['title'], markdown.output, markdown.metadata['date'], '')
   end
 
   def self.get_renderer()

@@ -12,9 +12,13 @@ class BlogIndex
   def load(index_file)
     collection = YAML.load_file(index_file)
     collection.each do |post_data|
-      post = Post.new(post_data[:title], nil, post_data[:date], post_data[:href])
+      post = Post.new(post_data[:title], nil, post_data[:date], post_data[:source], post_data[:href])
       @posts << PostDecorator.new(post)
     end
+  end
+
+  def find_by_uri(uri)
+    @posts.find { |post| post.href == uri }
   end
 
   def page_posts

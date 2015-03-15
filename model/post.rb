@@ -1,25 +1,11 @@
 class Post
-  def initialize(title, body, date, href = '')
+  attr_reader :title, :body, :date, :source, :href
+
+  def initialize(title, body, date, source, href = '')
     @title = title
     @body = body
     @date = date
+    @source = source
     @href = href
   end
-
-  def body
-    @body
-  end
-
-  def title
-    @title
-  end
-
-  def date
-    @date
-  end
-
-  def href
-    @href
-  end
-
 end
