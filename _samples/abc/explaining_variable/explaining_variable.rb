@@ -1,9 +1,12 @@
 class ExplainingVariable
   def do(platform, browser)
-    if (!platform.capitalize.index('MAC').nil?) &&
-        (!browser.capitalize.index('IE').nil?) &&
+    is_mac_os = !platform.capitalize.index('MAC').nil?
+    is_ie_browser = !browser.capitalize.index('IE').nil?
+    was_resized = resize > 0
+    if is_mac_os &&
+        is_ie_browser &&
         was_initialized &&
-        resize > 0
+        was_resized
       do_something
     end
   end
