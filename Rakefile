@@ -4,7 +4,7 @@ require_relative './app'
 require_relative './tasks/index_creator'
 desc "Run server"
 task :serverup do
-    system "ruby app.rb"
+    system "shotgun"
 end
 
 namespace :test do
