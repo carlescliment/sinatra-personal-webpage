@@ -6,11 +6,11 @@ date: 2015-03-07
 
 ### Introduction
 
-Processing files and other data sources is a common issue in software development. Batch processing financial operations or enabling communication between systems and their stakeholders are just a couple of examples of it. If you're a developer it is very likely you will have to deal with massive input sources, validate them, filter the content and process it to satisfy the business needs.
+Processing files and other data sources is a common issue in software development. Batch processing financial operations or enabling communication between systems and their stakeholders are just a couple of examples. If you're a developer it is very likely you will have to deal with massive input sources: validating them, filtering the content and processing it to satisfy business needs.
 
-In this article we will see how to refactor a hardly scalable procedural piece of code into a set of components with well defined responsibilities, easier to extend and cheaper to maintain.
+In this article we will see how to refactor a non scalable procedural piece of code into a set of components with well defined responsibilities, that are easier to extend and cheaper to maintain.
 
-The code you're going to see here is quite simple. I wouldn't recommend to apply the techniques described here for such a simple case, but keeping the problem small will help me to keep focused in the solution and discard irrelevant noise. So, please, I want you to envision the large scale.
+The code you're going to see here is quite simple. I wouldn't recommend applying the techniques described here in such a simple case, but keeping the problem small will help focus on the solution and ignore irrelevant noise. So please, think of the big picture.
 
 If you want more detailed information about the refactors made, please look at the [list of commits in Github](https://github.com/carlescliment/Katas/compare/62d647df251046b3aca54220f3c91edf937eff74...175b7f287c992590caa4eae6e09d22c7da374cfe).
 
@@ -41,9 +41,9 @@ module Loader
 end
 ```
 
-This small piece of Ruby code is doing a bunch of things. It is reading a CSV file and creating instances with bank account information. It also discards rows where the balance is not numeric, and also processes the rest of the fields by manipulating the content, this is, it removes trailing spaces in the name and converts the balance to float. By the way, I realise that the regular expression does not allow negative balances. For the sake of the readability of this whole post let's assume that it is always positive.
+This small piece of Ruby code is doing a bunch of things. It is reading a CSV file and creating instances with bank account information. It also discards rows where the balance is not numeric, and also processes the rest of the fields by manipulating the content, i.e., it removes trailing spaces in the name and converts the balance to float. By the way, I realise that the regular expression does not allow negative balances. For the sake of the readability of this whole post let's assume that it is always positive.
 
-Lots of different concerns are mixed together. If we left this piece of code evolve the way it is written, we would probably find more and more conditionals and manipulations in it. We are going to separate some of these responsibilities by using object oriented refactoring techniques.
+Lots of different concerns are mixed together. If we left this piece of code evolve the way it is written, we would probably find more and more conditionals and manipulations in it. We are going to separate some of these responsibilities out by using object oriented refactoring techniques.
 
 #### Extract the balance validation
 
@@ -116,7 +116,7 @@ module Loader
 end
 ```
 
-Uh, that means four lines more and zero readability gain. Are you sure of what  are you doing, Carles?. Patience, I beg you.
+Four more lines and a zero readability gain. Patience, please!
 
 #### Extract a name field
 
@@ -159,9 +159,9 @@ module Loader
 end
 ```
 
-You'll notice that the Name class has a useless `valid?` method that always returns true. It is not that useless, it keeps the consistence with the Field public interface. It also makes it easy for the future to add complex validations or content processing.
+You'll notice that the Name class has a useless `valid?` method that always returns true. It is not that useless, it maintains consistence with the Field public interface. It also makes it easy to add complex validations or content processing in the future.
 
-That makes 38 lines of code, 25 more than the original version and a little gain in maintainability. Let's keep moving.
+That makes 38 lines of code, 25 more than the original version and a little gain in maintainability. Let's keep going.
 
 #### Extract the account field
 
@@ -207,7 +207,7 @@ module Loader
 end
 ```
 
-Finally we are done with the fields. There is a consistent, although verbose way to handle the fields in the file. But we still have a long road to walk before making the code better than it was.
+Finally we are done with the fields. There is a consistent, albeit verbose way to handle the fields in the file. But we still have a long road to walk before we make the code better than it was.
 
 #### Making the row the unit of work
 
@@ -255,11 +255,11 @@ module Loader
 end
 ```
 
-You'll see that I've replicated the construction of the field instances. I will understand that you give up at this point and stop reading this article. If you are still here, I must tell you this is going to get even worse.
+You'll see that I've replicated the construction of the field instances. I will understand if you give up at this point and stop reading this article. If you are still here, I feel obliged to tell you this is going to get even worse.
 
 #### Extract fields by row
 
-Now we are going to operate the extraction considering the full row, instead of doing it field by field, the same way we did with the validation in the previous step. In order to do this, we need to add a bit more stuff to the fields classes.
+Now we are going to carry out the extraction taking the full row into consideration instead of doing it field by field, the same way we did with the validation in the previous step. In order to do this, we need to add a bit more stuff to the fields classes.
 
 
 ```
@@ -331,7 +331,7 @@ module Loader
 end
 ```
 
-We have added an `id()` method to the field classes that give us semantics to build the hash for the OpenStruct. We have moved the extraction to a method, in a way similar to the validation. And we have introduced clear replication we can start working on with.
+We have added an `id()` method to the field classes that give us semantics to build the hash for the OpenStruct. We have moved the extraction to a method, in a way similar to the validation. And we have introduced clear replication we can start working with.
 
 
 #### Extract a Layout class
@@ -379,7 +379,7 @@ module Loader
 end
 ```
 
-Our code is now 79 lines long while the original one was 13. But we have extracted some of the responsibilities in the `load()` method. With the separation of concerns the readability has improved significantly, but we can still improve the code.
+Our code is now 79 lines long while the original one was 13. But we have extracted some of the responsibilities to the `load()` method. With the separation of concerns the readability has improved significantly, but we can still improve the code.
 
 #### Extract CSVSource class
 
@@ -463,7 +463,7 @@ end
 
 ### Using heterogeneous data sources
 
-Once the pattern is implemented, it is really easy to switch to use different data source without changing a single line of code. Let's say that a second customer, another bank maybe, wants us to access to their database instead of sending us the file. Given that we have an abstraction for data sources, we can write the database equivalent for the CSVSource.
+Once the pattern is implemented, it is really easy to switch to using different data source without changing a single line of code. Let's say that a second customer, another bank maybe, wants us to access to their database instead of sending us the file. Given that we have an abstraction for data sources, we can write the database equivalent for the CSVSource.
 
 ```
 module Loader
@@ -486,7 +486,7 @@ The only thing we have to worry about is the order of the columns in the matrix 
 
 ### What this pattern is not
 
-The main target of this pattern is to separate concerns. On one side we decouple the concrete artefact that will give us the data. Then there is the layout, then the validation and manipulation of the fields, then the resulting objects construction. How these objects are consumed by the system is out of the scope.
+The main target of this pattern is to separate concerns. On one side we decouple the concrete artefact that will give us the data. Then there is the layout, then the validation and manipulation of the fields, then the resulting objects construction. How these objects are consumed by the system is outside the scope.
 
 No business logic should be found in the components described in this post. The layout is not responsible for interpreting the relations between the data. For example, if some columns are related, if for some reason some operation should be applied between two cells in a row, it must be done elsewhere. If the rows must be grouped by some criteria, it is someone else who should be in charge of that.
 
@@ -494,7 +494,7 @@ No business logic should be found in the components described in this post. The 
 
 We commented above that there is a problem with the shared knowledge about the order of the fields between the `Layout` and the DataSource. Apart from that, the field objects have two different responsibilities: they not only clean the data they provide, but they also perform validation. There are probably better ways for doing this. I'm open to suggestions and will be happy to receive feedback from you.
 
-Another thing to note is that you don't necessarily need that much granularity for the field classes. Let's imagine a layuot that contains two float fields, you could write a generic `FloatField` that receives the id in construction:
+Another thing to note is that you don't necessarily need that much granularity for the field classes. Let's imagine a Layout that contains two float fields, you could write a generic `FloatField` that receives the id in construction:
 
 ```
 # generic fields
