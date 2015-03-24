@@ -5,7 +5,7 @@ date: 2015-03-24
 
 Do you imagine if there was an algorithm that let us evaluate the quality of a book and turn it into a discrete number? It could count the number of different characters, the deepness in their description, or how many times certain words are repeated in the book. Or the average paragraph length, or the % of the words of the dictionary used. Given that, *Crime and punishment* could be a 176 while *Les Misérables* could score a still respectable 152. *"That's crazy"*, you'll say, but if we could standarize what objective traits make literature good, it shouldn't be that hard to extract a metric.
 
-Fortunately, nobody tries to put literature in objective terms. But we do it with software. Is it right? Is it fair to compare literature and programming? I'm not in position to give responses to that, but if we are going to talk about metrics, let's do it seriously.
+Fortunately, nobody tries to put literature in objective terms. But we do it with software. Is it right? Is it fair to compare literature and programming? I'm not in position to give responses for that, but please lets keep talking about metrics.
 
 ### The Abc metric
 
@@ -128,6 +128,6 @@ The code here is a bit longer, please compare [the original version](https://git
 
 ### Conclusions
 
-All the changes made by Mr. Fowler increased the size of the codebase. Any variable added to improve the semantics and any method extracted was punished by the Abc metric because of that. Is Mr. Fowler wrong? Is there a real correlation between software size and software quality? If not, why is a QA expert imposing that metric to the team?
+All the changes made by Mr. Fowler increased the size of the codebase. Any variable added to improve the semantics and any method extracted was punished by the Abc metric because of that. Is Mr. Fowler wrong? Is there a real correlation between software size and software quality? If not, why was a QA expert imposing that metric to the team?
 
-What makes me mad of all this story is who paid the cost of introducing the abc metric to development teams and constraining them to silly numeric thresholds. Most of these teams were part of big companies looking for a quality seal. Do you know why? Because they worked for the public administration. Do you guess who paid the bill in the end? How many copies of *Refactoring: Improving the design of existing code* could have been bought and given to the team with that money?
+Introducing a wrong metric to development teams and constraining them to respect metric thresholds had a cost, undoubtedly. What makes me mad of all this story is who paid that bill. Most of these teams were part of big companies looking for a quality seal. Do you know why? Because they worked for the public administration and that seal would give them some advantage. Do you guess who paid the bill in the end? How many copies of *Refactoring: Improving the design of existing code* could have been bought and given to the team with that money?
