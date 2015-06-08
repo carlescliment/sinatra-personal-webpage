@@ -51,8 +51,9 @@ class PersonalWebPage < Sinatra::Base
     haml :publications_index, :locals => { :index => index }
   end
 
-  get '/publications/:title' do |title|
-    post = load_post_or_404(title, settings.publications)
+  get '/publications/:title' do |uri|
+    index = load_index(settings.publications)
+    post = load_post_or_404(index.find_by_uri("/publications/#{uri}").source, settings.publications)
     haml :publication, :locals => { :post => post }
   end
 
