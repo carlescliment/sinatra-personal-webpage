@@ -8,6 +8,7 @@ gem "haml"
 gem "pony"
 gem "metadown", :git => 'git://github.com/steveklabnik/metadown.git'
 gem "pygments.rb"
+gem 'capistrano', '~> 3.4.0'
 
 #bundle install --without test development
 group :test do
