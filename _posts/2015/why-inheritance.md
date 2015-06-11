@@ -78,6 +78,8 @@ We all know the "Don't Repeat Yourself" ([DRY](http://en.wikipedia.org/wiki/Don%
 
 
 ```
+# No generalization
+
 class DwarvenWarrior
   def initialize(hammer)
     @hammer = hammer
@@ -102,6 +104,8 @@ end
 In the example above we can see a replicated method `initialize` being used in both classes. Anyone could be tempted to extract a superclass to contain the constructor. After all, they even share the same interface, right?
 
 ```
+# Generalization
+
 class Hammerer
   def initialize(hammer)
     @hammer = hammer
@@ -128,7 +132,7 @@ end
 We use to think that generalization comes at zero cost, but it isn't true. When we extract a superclass, we bind all the subclasses together in the same hierarchy. Inheritance adds coupling, and that coupling can bring design problems if not chosen carefully. Whenever you're about to create a superclass, please think about the reasons we talked about in the previous section. The new abstraction `Hammerer` can make sense or not. In the context of building houses, we may need the help of a HouseBuilder, but we won't probably want a DwarvenWarrior bashing on things all around. Always evaluate if those subclases can be replaced meaningfully in the clients using them. Again we must refer to the Liskov Substitution Principle.
 
 
-#### Who works for who?
+#### Who works for whom?
 
 As we talked before, good superclasses have one, and only one, abstract method to override. I've taken this idea (or at least that is my interpretation) from Xavi Gost, who used the term 'Single Segregated Responsibility'. The subclass is then responsible to do one thing: specializing the superclass.
 
