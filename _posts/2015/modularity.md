@@ -9,13 +9,13 @@ date: 2015-07-30
 > Look back to where you have been, for a clue to where you are going.
 
 
-I was a Python developer during the first four years of my professional career, but it was before _my awakening_ as a programmer. Most of us wake up as devs at some time in our life, for some others it never happens. The awakening is that period of time in which you realize you aren't enjoying your profession enough, so you start reading and experimenting to go beyond. And the more you discover, the more you feel the joy of being a programmer.
+Modularity is a design principle in software development that consists of grouping pieces of functionality in a set of cohesive, loosely coupled components. Cohesion and loose coupling are key to share modules across applications. And even when there is no intent of sharing code, modularity comes with many other benefits such as ease to change behaviours without undesired side effects, long term maintainability or improved testability in isolation.
 
-In this post, my intention is to describe how the platforms I've mostly worked with during my career try to keep boundaries decoupled. I'll start with Drupal to continue with Symfony 2, and finally I'll share my thoughts about my first seven months working with Rails applications.
+In this post, my intention is to describe how the platforms I've mostly worked with try to keep boundaries decoupled. Although I've worked with Python during almost the first half of my career, I have no experience with modern Python frameworks, libraries and practices. So I'll start with Drupal to continue with Symfony 2, and finally I'll share my thoughts about my first seven months working with Rails applications.
 
 ### Drupal 6-7
 
-Drupal is a CMS written in PHP, good for site builders and horrible for software developers. I've complained for long about this huge pile of... code due to its untestability and its dependency on the database, among other things. But apart from those well known problems, there are a couple of good things in Drupal.
+Drupal is a CMS written in PHP, good for site builders and horrible for software developers. I've complained for long about this huge pile of... code due to its low code quality and its dependency on the database, among other things. But apart from those problems there are a couple of good things in Drupal.
 
 If you want to apply some customizations to your Drupal application, you have to write a module. Modules in Drupal work the same way as plugins in Wordpress. You might add modules to enable WYSIWYG in some of your forms or to send tweets via the Twitter API. Drupal opens a predefined set of entry points called *hooks* to allow the modules change its behaviour. For instance, there is a *hook_menu* to add new URIs to the router. The implementation is as naive as effective. At some point during the bootstrap of the CMS, it iterates over all the enabled modules and looks if there is a defined `name_of_the_module_name_of_the_hook()` function. So if a module `foo` implements `foo_menu()`, it will extend the router with any additional URI it wants to provide. 
 
