@@ -22,3 +22,5 @@ config/config.yml
 index.yml
 .htaccess
 *.swp
+
+sonar_phpunit.png
