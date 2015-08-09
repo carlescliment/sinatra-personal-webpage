@@ -14,6 +14,7 @@ When cloning the repo, copy config/config.yml.dist to config/config.yml
 [Guide for installing Phussion Passenger on Ubuntu](http://www.rabblemedia.net/installing-rvm-ruby-on-rails-and-passenger-on-ubuntu.html)
 
 
-Remember to install bundles using
+Deployment with Capistrano is still not finished.
 
-`bundle install --path vendor/cache`
+`bundle install --deployment`
+`bundle exec rake blog:reindex`
