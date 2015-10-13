@@ -183,7 +183,7 @@ Los test automáticos deben seguir unos principios, que se definen en el acróni
 
   * **F**ast - Deben ser rápidos. Cuando son lentos, no queremos ejecutarlos con frecuencia. Es bueno medir los test porque permiten identificar secciones muy lentas del código.
   * **I**ndependent - Un test no debería depender de otro, ni preparar las condiciones del siguiente test.
-  * **R**epeatable - Deben poder ejecutarse una y otra vez si cambiar el resultado obtenido bajo el mismo contexto.
+  * **R**epeatable - Deben poder ejecutarse una y otra vez sin cambiar el resultado obtenido bajo el mismo contexto.
   * **S**elf Validating - Los test deben devolver información sobre si han tenido éxito o no.
   * **T**imely - Los test deben escribirse en el momento apropiado (ANTES que el código).
 
@@ -228,7 +228,7 @@ Existen herramientas que permiten automatizar las pruebas de aceptación. Por ej
 
 De entre los puntos a tratar en este artículo, este es el que afronto con más prudencia y reservas. Tanto es así que he estado tentado de pasarlo por alto. Pero hablar de calidad sin explicar TDD es como describir el mar sin hablar de las olas. Si me cuesta tanto tratar este tema es porque TDD es, probablemente, la práctica más difícil de todas las que explico en este texto y, a la vez, la más determinante. Yo empecé a interesarme seriamente por la calidad del software hace apenas un año y recién empiezo a dar los primeros pasos.
 
-Si queréis profundizar en el asunto (y si habéis llegado hasta aquí seguro que lo haréis) podéis empezar por el estupendo libro de [Carlos Ble](http://www.carlosble.com/), [Dirigido por tests](p://www.dirigidoportests.com/el-libro). Es un libro excelente y, además, gratuíto. También os recomiendo su [charla sobre TDD](http://vimeo.com/9932447), de la cual bebe mucho este artículo.
+Si queréis profundizar en el asunto (y si habéis llegado hasta aquí seguro que lo haréis) podéis empezar por el estupendo libro de [Carlos Ble](http://www.carlosble.com/), [Diseño Ágil con TDD](http://www.carlosble.com/libro-tdd/). Es un libro excelente y, además, gratuíto. También os recomiendo su [charla sobre TDD](http://vimeo.com/9932447), de la cual bebe mucho este artículo.
 
 ### Red - Green - Refactor
 
@@ -238,9 +238,9 @@ Antes de escribir una sola línea de código de producción implementaremos la p
 
 Una vez implementada la prueba pasaremos a implementar el código mínimo que la haga pasar. Es importante que no escribamos nada más que el código necesario para que pase. A medida que vayamos añadiendo tests el código se irá levantando por sí solo respetando el principio [YAGNI](http://en.wikipedia.org/wiki/You_ain%27t_gonna_need_it). Cuando hayamos implementado la lógica mínima que haga pasar el test estaremos en la fase Green.
 
-El último paso en la receta de la TDD es eliminar duplicidades y refactorizar. El refactoring continuo garantizará que respetamos el respeto [DRY](http://en.wikipedia.org/wiki/Don%27t_repeat_yourself) y que mantenemosnuestro código en condiciones óptimas.
+El último paso en la receta de la TDD es eliminar duplicidades y refactorizar. El refactoring continuo garantizará que respetamos el principio [DRY](http://en.wikipedia.org/wiki/Don%27t_repeat_yourself) y que mantenemos nuestro código en condiciones óptimas.
 
-Este proceso se repite hasta que el sistema al completo ha sido terminado.
+Este proceso se repite hasta que el sistema al completo ha terminado.
 
 ### Desarrollo guiado por especificación
 
@@ -460,7 +460,7 @@ Este artículo no nació para ser artículo. En principio no era más que un esq
 
 He redactado este artículo en cinco intensos días. He tenido que excavar en mi memoria para rescatar ideas que empezaban a quedarse enterradas. Me he desesperado intentando expresar ideas que no conseguía explicarme a mí mismo. Al final, algo ha salido. Mi experiencia de un año dedicado en buena parte al estudio de la calidad del software.
 
-Los agradecimientos se los reservo a [Emma López](http://twitter.com/#!/hell03610) por su apoyo y sus comentarios, y por brindarme la oportunidad de dar la charla con una audiencia tan distinguida. A ellos también por venir a escucharme y compartir sus conocimientos. A [Carlos Ble](http://www.carlosble.com/) por sus discursos inspiradores - la estructura inicial de este artículo es un copy-paste de una charla suya sobre TDD - y a los autores que, [a través de los libros](http://www.carlescliment.com/blog/2011-un-a%C3%B1o-de-libros), me ayudaron tanto el año pasado.
+Los agradecimientos se los reservo a [Emma López](http://twitter.com/#!/hell03610) por su apoyo y sus comentarios, y por brindarme la oportunidad de dar la charla con una audiencia tan distinguida. A ellos también por venir a escucharme y compartir sus conocimientos. A [Carlos Ble](http://www.carlosble.com/) por sus discursos inspiradores - la estructura inicial de este artículo es un copy-paste de una charla suya sobre TDD - y a los autores que, [a través de los libros](http://www.carlescliment.com/blog/2011-un-ano-de-libros), me ayudaron tanto el año pasado.
 
 A todos ellos, ¡gracias!
 
