@@ -1,5 +1,4 @@
 require 'rubygems'
-require 'rspec/core/rake_task'
 require_relative './app'
 require_relative './tasks/index_creator'
 desc "Run server"
@@ -8,6 +7,7 @@ task :serverup do
 end
 
 namespace :test do
+    require 'rspec/core/rake_task'
 
     desc "Run model specs"
     RSpec::Core::RakeTask.new(:model) do |t|

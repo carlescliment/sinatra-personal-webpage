@@ -6,6 +6,8 @@ set :repo_url, 'https://github.com/carlescliment/sinatra-personal-webpage.git'
 set :user, 'deploy'
 set :group, 'www-data'
 
+set :rvm_custom_path, '/usr/local/rvm'
+set :passenger_restart_with_touch, true
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
@@ -42,6 +44,7 @@ namespace :deploy do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
       within release_path do
+        execute 'bundle install --deployment'
         execute :rake, 'blog:reindex'
       end
     end
