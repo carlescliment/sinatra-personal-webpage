@@ -42,8 +42,8 @@ role :app, %w{199.189.111.156}
 # Global options
 # --------------
 set :ssh_options, {
-  keys: %w(/Users/carlescliment/.ssh/id_rsa_vetaminic),
-  forward_agent: false,
+  keys: %w(/home/carlescliment/.ssh/id_rsa_vetaminic),
+  forward_agent: true,
   auth_methods: %w(publickey)
 }
 #

@@ -40,14 +40,13 @@ set :deploy_to, '/var/www/carlescliment.com'
 
 namespace :deploy do
 
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      within release_path do
-        execute 'bundle install --deployment'
+  task :reindex do
+    on roles(:all) do
+      within current_path do
         execute :rake, 'blog:reindex'
       end
     end
   end
 
+  after :deploy, "deploy:reindex"
 end
