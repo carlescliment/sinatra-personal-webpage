@@ -60,4 +60,4 @@ set :ssh_options, {
 #     # password: 'please use keys'
 #   }
 set :linked_files, ['config/config.yml']
-
+set :linked_dirs, %w{log tmp/pids tmp/sockets}

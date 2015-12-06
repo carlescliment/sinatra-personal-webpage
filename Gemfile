@@ -8,6 +8,7 @@ gem "haml"
 gem "pony"
 gem "metadown", :git => 'git://github.com/steveklabnik/metadown.git'
 gem "pygments.rb"
+gem "unicorn"
 
 #bundle install --without test development
 group :test do
