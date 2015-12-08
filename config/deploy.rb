@@ -6,8 +6,7 @@ set :repo_url, 'https://github.com/carlescliment/sinatra-personal-webpage.git'
 set :user, 'deploy'
 set :group, 'www-data'
 
-set :rvm_custom_path, '/usr/local/rvm'
-set :passenger_restart_with_touch, true
+set :rvm_custom_path, '/home/deploy/.rvm'
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
