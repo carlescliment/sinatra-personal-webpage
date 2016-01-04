@@ -41,7 +41,7 @@ One of the books that have written the history of software development, publishe
 
 
 
-### Building microservices - 
+### Building Microservices - Sam Newman
 
 Another book I read aiming to boost my skills for peerTransfer, since I was developing a Service-Oriented architecture I thought this reading would be helpful. And it was, indeed. Very closely related to Domain Driven Design, it soon starts talking about Bounded Contexts, Domain events and other shared concepts. It covers all the aspects of the microservice architecture, including operations, monitoring and testing, providing concrete tools and diverse alternatives. Unfortunately, in my opinion, it only scratches the surface of the concepts it covers, and many of the things it teaches can be reached intuitively.
 
