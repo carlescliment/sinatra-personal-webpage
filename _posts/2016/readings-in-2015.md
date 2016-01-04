@@ -41,6 +41,12 @@ One of the books that have written the history of software development, publishe
 
 
 
+### Building microservices - 
+
+Another book I read aiming to boost my skills for peerTransfer, since I was developing a Service-Oriented architecture I thought this reading would be helpful. And it was, indeed. Very closely related to Domain Driven Design, it soon starts talking about Bounded Contexts, Domain events and other shared concepts. It covers all the aspects of the microservice architecture, including operations, monitoring and testing, providing concrete tools and diverse alternatives. Unfortunately, in my opinion, it only scratches the surface of the concepts it covers, and many of the things it teaches can be reached intuitively.
+
+Being the testing my greatest point of interest, and being it so complex when dealing with microservices, I really missed a deeper approach in that chapter. Anyway, it's a good book to have a wide view of the architecture and to start playing with concepts and tooling. **OKAY**.
+
 ### Code Complete 2 - Steve McConnell
 
 This book is so amazingly extense I couldn't finish it. It explains in such detail every single aspect of programming that I felt overwhelmed. Probably my bad, I always read the books from the beginning to the end, and this book may be better read as a reference material. Some of the things it mentions are very language specific and have been overcome by modern, high-level languages. It mentions a lot of studies of dubious credibilty and probably outdated. But some advices are pure gold.
