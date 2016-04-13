@@ -35,6 +35,8 @@ Add to `/etc/nginx/nginx.conf` http section:
 
 `bundle exec unicorn -c unicorn.rb -D`
 
+In production: `/home/deploy/.rvm/bin/rvm default do bundle exec unicorn -c unicorn.rb -D`
+
 
 ## Deployment
 
