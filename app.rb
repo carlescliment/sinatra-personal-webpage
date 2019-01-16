@@ -18,30 +18,6 @@ class PersonalWebPage < Sinatra::Base
     haml :profile
   end
 
-  get '/contact' do
-    haml :contact
-  end
-
-  post '/contact' do
-    sender = params[:email]
-    message = params[:message]
-
-    Pony.mail :to => settings.contact['to_address'],
-              :from => settings.contact['from_address'],
-              :subject => 'Contact from your personal webpage',
-              :body => "#{sender} : #{message}",
-              :via => settings.mailer['transport'],
-              :via_options => {
-                :address => settings.mailer['host'],
-                :port => settings.mailer['port'],
-                :user_name => settings.mailer['username'],
-                :password => settings.mailer['password']
-              }
-
-    flash.next[:info] = "Thanks, the e-mail has been sent. I'll respond to you as soon as possible. Promise!"
-    redirect '/contact'
-  end
-
   get '/blog' do
     index = load_index(settings.blog)
     haml :blog_index, :locals => { :index => index }
