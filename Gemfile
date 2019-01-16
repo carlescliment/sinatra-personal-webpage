@@ -19,7 +19,7 @@ end
 
 group :development do
   gem 'shotgun'
-  gem 'capistrano', '~> 3.4.0'
+  gem 'capistrano', '~> 3.4.1'
   gem 'capistrano-rvm'
   gem 'capistrano-passenger'
   gem 'capistrano-bundler'

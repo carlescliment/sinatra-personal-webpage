@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '3.4.0'
+lock '3.4.1'
 
 set :application, 'carlescliment.com'
 set :repo_url, 'https://github.com/carlescliment/sinatra-personal-webpage.git'
